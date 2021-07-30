@@ -1,10 +1,11 @@
 {
     "Accumulator function": {
-        "prefix": "!acc",
+        "prefix": "!accmlt",
         "body": [
           "!accmlt &in(),&out(),*key1(),",
           "        *key2(),@allrecs=,@unsorted="
         ],
-        "description": "Accumulator function"
+        "description": ["Accumulates sub-totals for up to 25 numeric fields", 
+          "for constant values of a keyfield."]
     }
   }
