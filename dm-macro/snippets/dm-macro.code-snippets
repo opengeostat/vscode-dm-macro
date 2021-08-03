@@ -1,11 +1,212 @@
+// Pute here list of PROCESESS
+// use https://github.com/truemoid/sublime-dm-macro/blob/master/snippets as reference
+
+// TODO: add help on parameters on the description section
 {
-    "Accumulator function": {
-        "prefix": "!accmlt",
-        "body": [
-          "!accmlt &in(),&out(),*key1(),",
-          "        *key2(),@allrecs=,@unsorted="
-        ],
-        "description": ["Accumulates sub-totals for up to 25 numeric fields", 
-          "for constant values of a keyfield."]
-    }
+  "Accumulate":{
+     "prefix":"!ACCMLT",
+     "body":[
+        "!ACCMLT &in($1),&out($2),*key1($3),",
+        "        *key2($4),@allrecs=${5:0},@unsorted=${6:1}"
+     ],
+     "description":[
+        "Accumulates sub-totals for up to 25 numeric fields",
+        "for constant values of a keyfield."
+     ]
+  },
+  "Add extra field":{
+     "prefix":"!ADDDD",
+     "body":[
+        "!ACCMLT &in($1),&out($2)",
+        "${3:file description}",
+        "${4:FIELD1 n y -}",
+        "${5:FIELD2 a 8 y ''}"
+     ],
+     "description":[
+        "Adds extra fields to a file, ",
+        "requesting the field names and parameters interactively, ",
+        "in the same way as that used for entering a new Data Definition."
+     ]
+  },
+  "Add block model":{
+     "prefix":"!ADDMOD",
+     "body":[
+        "!ADDMOD !&in1($1),&in2($2),&out($3),",
+        "        @tolernce=${4:0.001}"
+     ],
+     "description":[
+        "Adds two models together by superimposing one onto another"
+     ]
+  },
+  "Add wireframes":{
+     "prefix":"!ADDTRI",
+     "body":[
+        "!ADDTRI &wiretr1($1tr),&wirept1($1pt),",
+        "        &wiretr2($2tr),&wirept2($2pt),",
+        "        &wiretrou($3tr),&wireptou($3pt)"
+     ],
+     "description":[
+        "Combines two pairs of wireframe model files, into a single pair of output files"
+     ]
+  },
+  "Edit files":{
+     "prefix":"!AED",
+     "body":[
+        "!EAD &in($1),&defn($2),",
+        "     &apphlp($3),&out($4)"
+     ],
+     "description":[
+        "File editor for creation, validation and modification of files"
+     ]
+  },
+  "Alpha tto numeric":{
+     "prefix":"!ALFNUM",
+     "body":[
+        "!alfnum &in($1)${2:,&fieldlst()},&out($3),",
+        "       *f1($4),*f2($5),*f3($6),*f4($7)${8:,*fieldnam()}"
+     ],
+     "description":[
+        "Copies a file while converting given alphanumeric fields to numeric."
+     ]
+  },
+  "Create anisotropic input":{
+     "prefix":"!ANISOANG",
+     "body":[
+        "!ANISOANG &planstr($1),&sectstr($2),",
+        "       &wiretr($3tr),&wirept($3pt),&points($4),",
+        "       *zone($5),",
+        "       @tripts=${6:1},@planmode=${7:1},@sectmode=${8:1},",
+        "       @mindip=${9:-90},@maxdip=${10:90},@mindirn=$11,@maxdirn=$12,",
+        "       @addsymb=${13:0},@plansymb=${14:216},@sectsymb=${15:216},@wfsymb=${16:224},",
+        "       @plancol=${17:1},@sectcol=${18:2},@wfcol=${19:3},@symsize=${20:2}"
+     ],
+     "description":[
+        "Aprocess to assist with creating anisotropic input data for modelling processes"
+     ]
+  },
+  "ANOVA statistics":{
+     "prefix":"!ANOVA1",
+     "body":[
+        "!ANOVA1 &in($1)",
+        "       *value($2),",
+        "       *key1($3),*key2($4),*key3($5),*key4($6)"
+     ],
+     "description":[
+        "Aprocess to assist with creating anisotropic input data for modelling processes"
+     ]
+  },
+  "Append files":{
+     "prefix":"!APTOTRUE",
+     "body":[
+        "!APTOTRUE &in($1),&out($2)",
+        "       *apdip(${3:APDIP}),*trdipdir(${4:TRDIPDIR}),*trdip(${5:TRDIP}),",
+        "       @apdipdir=${6:0}"
+     ],
+     "description":[
+        "Aprocess to assist with creating anisotropic input data for modelling processes"
+     ]
+  },
+  "Update by sample number":{
+     "prefix":"!ASTRAN",
+     "body":[
+        "!ASTRAN &in($1),&xref($2)",
+        "       *sampleid(${3:SAMPLEID}),",
+        "       @sprefix=${4:2},@sdigits=${5:6},@maxerrs=$6,@update=${7:0}"
+     ],
+     "description":[
+        "Thisprocess reads one or more assay files and updates a  file by matching sample numbers."
+     ]
+  },
+  "Check legend definition":{
+     "prefix":"!ATTCHK",
+     "body":[
+        "!ATTCHK &in($1),&out($2),&error($3)"
+     ],
+     "description":[
+        "This process is used to check the legend definition file prior to running ATTSET"
+     ]
+  },
+  "Set value of field based on data field":{
+     "prefix":"!ATTSET",
+     "body":[
+        "!ATTSET &in($1),&legend($2),&out($3),",
+        "       *datfld1($4),*datfld2($5),*datfld3($6),*datfld4($7),",
+        "       *attrib1($8),*attrib2($9),*attrib3($10),*attrib4($11),",
+        "       @mode=${12:0},@inrange=${13:0}"
+     ],
+     "description":[
+        "Set values of nominated attribute fields in a file based on the values of a given data field in the input file."
+     ]
+  },
+  "Quantify anomalous thresholds on grid":{
+     "prefix":"!AUTOCR",
+     "body":[
+        "!AUTOCR &in($1),&out($2),",
+        "       *sampid($3),",
+        "       *f1($4),*f2($5),*f3($6),*f4($7),",
+        "       @sampdist=${8:0},@print=${9:0}"
+     ],
+     "description":[
+        "Quantify and define anomalous thresholds and halo size on regularly-gridded soil sample lines."
+     ]
+  },
+  "Autofit variogram":{
+     "prefix":"!AUTOVMOD",
+     "body":[
+        "!AUTOVMOD &vgrams($1),&nugget($2),",
+        "       &sills($3),&structs($4),&vmodel($5),",
+        "       @VSETNUM=${6:1},  @MINNUGPC=${7:1},",
+        "       @MINSILPC=${7:5}, @MAXSTRCT=${8:3},",
+        "       @MAXIT=${9:1000.0}, @MULTIVAR=${10:1.0},",
+        "       @ANISO=${11:1}"
+     ],
+     "description":[
+        "Automaticallyfit variogram and cross-variogram models to experimental variogrammodel data"
+     ]
+  },
+  "Back-transformation":{
+     "prefix":"!BACKTR",
+     "body":[
+        "!BACKTR &in1($1),&refdist($2),&out($3),",
+        "       *normval($4),*origref($5),*normref($6),*backval($7),",
+        "       @minnorm=$8,@maxnorm=$9,@minback=$10,@maxback=$11,",
+        "       @lotail=${12:1},@lopar=$13,@uptail=${14:2},@uppar=$15"
+     ],
+     "description":[
+        "Back-transformation from normal distribution."
+     ]
+  },
+  "Count of drillholes":{
+     "prefix":"!BHCOUNT",
+     "body":[
+        "!BHCOUNT &modelin($1),&sampin($2),&modelout($3),",
+        "       *key(${4:BHID},*value($5),",
+        "       @parent=${6:1}"
+     ],
+     "description":[
+        "Count of drillholes to estimate each block."
+     ]
+  },
+  "Perimeters around blocks":{
+     "prefix":"!BLKPER",
+     "body":[
+        "!BLKPER &in($1),&out($2),",
+        "       @direct=${3:1},@startpos=$4,@stepsize=$5,@numplane=$6,",
+        "       @smooth=${7:0},@connect=${8:1},@bradjust=${9:0}"
+     ],
+     "description":[
+        "Creates a set of perimeters around blocks in a model file."
+     ]
+  },
+  "Blocks to wireframe":{
+     "prefix":"!BLKTRI",
+     "body":[
+        "!BLKTRI &in($1),&out($2),",
+        "       @direct=${3:1},@startpos=$4,@stepsize=$5,@numplane=$6,",
+        "       @smooth=${7:0},@connect=${8:1},@bradjust=${9:0}"
+     ],
+     "description":[
+        "Converts block model(s) to wireframe surfaces(s)."
+     ]
   }
+}
