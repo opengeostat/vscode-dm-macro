@@ -357,5 +357,60 @@
         "Estimation using univariate and multivariate methods:",
         "ordinary, simple kriging, inverse distance weighting and nearest neighbor."
      ]
+  },
+  "Combine block models":{
+     "prefix":"!COMBMOD",
+     "body":[
+        "COMBMOD &proto($1),",
+        "        &in1($2),&in2($3),&in3($4),&in4($5),",
+        "        &modelout($6),",
+        "        @tolernce=${30:0.001}"
+     ],
+     "description":[
+        "Combine up to 20 block models with different prototype."
+     ]
+  },
+  "Composite over benches":{
+     "prefix":"!COMPBE",
+     "body":[
+        "COMPBE &in($1),&out($2),",
+        "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),*density(${6:DENSITY}),",
+        "       *coreloss(${7:CORELOSS}),*corerec(${8:COREREC}),*zone($9),",
+        "       @interval=$10,@mingap=${11:0.05},@maxgap=${12:0},@elev=${13:0},",
+        "       @mincomp=$14,@maxcomp=$15,@loss=${16:0},@print=${17:0}"
+     ],
+     "description":[
+        "Composite over benches."
+     ]
+  },
+  "Composite over benches with selectivity":{
+     "prefix":"!COMPBR",
+     "body":[
+        "COMPBR &in($1),&out($2),",
+        "       *value($3),*bhid(${4:BHID}),*from(${5:FROM}),*to(${6:TO}),",
+        "       *density(${7:DENSITY}),*coreloss(${8:CORELOSS}),",
+        "       *corerec(${9:COREREC}),*zone($10),",
+        "       @interval=$11,@cutoff=$12,@mingap=$13,@maxgap=${14:0},",
+        "       @elev=${15:0},@mincomp=$16,@maxcomp=$17,@loss=${18:0},",
+        "       @print=${19:0}"
+     ],
+     "description":[
+        "Composite over benches with selectivity."
+     ]
+  },
+  "Composite drillholes downhole by zones":{
+     "prefix":"!COMPDH",
+     "body":[
+        "COMPDH &in($1),&out($2),",
+        "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),",
+        "       *density(${6:DENSITY}),*coreloss(${7:CORELOSS}),",
+        "       *corerec(${8:COREREC}),*zone($9),*zone2($10),*zone3($11),",
+        "       @interval=$11,@mingap=$12,@maxgap=${13:0},@mincomp=$14,",
+        "       @loss=$15,@start=${16:0},@mode=${17:1},@density=${18:1},",
+        "       @print=${19:0}"
+     ],
+     "description":[
+        "Composite drillholes downhole by zones."
+     ]
   }
 }
