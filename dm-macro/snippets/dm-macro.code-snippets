@@ -201,13 +201,161 @@
   "Blocks to wireframe":{
      "prefix":"!BLKTRI",
      "body":[
-        "!BLKTRI &in($1),&wiretr($2tr),&wirept($2pt)",
+        "!BLKTRI &in($1),&wiretr($2tr),&wirept($2pt),",
         "       *class($3),*modcol($4),",
         "       @plane=${5:0},@xsubcell=${6:1},@ysubcell=${7:1},@zsubcell=${8:1},",
         "       @order=${9:0},@surface=${10:3},@colour=${11:1}"
      ],
      "description":[
         "Converts block model(s) to wireframe surfaces(s)."
+     ]
+  },
+  "Canonical analysis":{
+     "prefix":"!CANON",
+     "body":[
+        "!CANON &in($1),&scores($2),",
+        "       *sampid($3),",
+        "       *f1($4),*f2($5),*f3($6),*f4($7),",
+        "       @nleft=$8,@print=${9:0}"
+     ],
+     "description":[
+        "Defines mineralized and background by canonical vectors and scores on the basis of two variates"
+     ]
+  },
+  "Transform coordinates":{
+     "prefix":"!CDTRAN",
+     "body":[
+        "!CDTRAN &in($1),&protorot($2),&out($3),",
+        "       *x($4),*y($5),*z($6),",
+        "       *newx($7),*newy($8),*newz($9),",
+        "       @angle1=${10:0},@angle2=${11:0},@angle3=${12:0},",
+        "       @rotaxis1=${13:0},@rotaxis2=${14:0},@rotaxis3=${15:0},",
+        "       @x0=${16:0},@y0=${17:0},@z0=${18:0},@xr0=${19:0},@yr0=${20:0},@zr0=${21:0},",
+        "       @factor=${22:1},@inverse=${23:0},@print=${24:0}" 
+     ],
+     "description":[
+        "General three-dimensional coordinate rotation and translation."
+     ]
+  },
+  "Confidence from simulations":{
+     "prefix":"!CELLCONF",
+     "body":[
+        "!CELLCONF &statmod($1),&cutoff($2),&conf_tbl($3),",
+        "       &conf_plt($4),@cutint($5),@cutmax($6),",
+        "       @plot_tbl($7),@display($8)" 
+     ],
+     "description":[
+        "Creates a summary table and graph of confidence for parent cells in a block model",
+        " which has been created using conditional simulation."
+     ]
+  },
+  "Channel to drillhole":{
+     "prefix":"!CHANNL3D",
+     "body":[
+        "!CHANNL3D &survpts($1),&sample1($2),&sample2($3),",
+        "       &out($4),&chansmry($5),&errors($6),",
+        "       *bhid($7),*xpt($8),*ypt($9),*zpt($10),*from($11),*to($12),",
+        "       @extend($13:1),@endpoint($14:1)" 
+     ],
+     "description":[
+        "converts Channel data and survey into a 'desurveyed' drillholes."
+     ]
+  },
+  "Data to chart":{
+     "prefix":"!CHART",
+     "body":[
+        "!CHART &in($1),&proto($2),&anno($3),",
+        "       &out($4),&plot($5),",
+        "       *x($6),*y($7),*weight($8),",
+        "       *key1($9),*key2($10),*key3($11),",
+        "       @charttyp=${12:1},@histtyp=${13:1},@binsize=${14:1},@binmin=${15:0},",
+        "       @binmax=$16,@binmeth=${17:1},@xtrans=${18:1},@ytrans=${19:1},",
+        "       @logmin=${20:0.01},@frametyp=${21:2},@xfactor=${22:1},@yfactor=${23:1},",
+        "       @linetyp1=${24:1},@symbol1=${25:92},@symsize1=${26:3},@colour1=${27:12},",
+        "       @linetyp2=${28:0},@symbol2=${29:0},@symsize2=${30:3},@colour2=${31:0},",
+        "       @append=${32:0},@colflag=${33:1},@legend=$34,@legchsiz=${35:3},",
+        "       @tcharsz=${36:3},@tcolour=${37:12},@xinc=$38,@yinc=$39,",
+        "       @ndx=$40,@ndy=$41,@igrid=${42:3},@fcharsz=${43:3},",
+        "       @fcolour=${44:12},@xpaper=${45:240},@ypaper=${46:200},@xmin=$47,",
+        "       @xmax=$48,@ymin=$49,@ymax=$50,@xscale=$51,@yscale=$52,",
+        "       @progress=${53:1},@display=${54:1}" 
+     ],
+     "description":[
+        "Transforms data into a suitable format for creating charts", 
+        "andoptionally creates and displays a draft quality plot."
+     ]
+  },
+  "Validate a string file":{
+     "prefix":"!CHECKIT",
+     "body":[
+        "!CHECKIT &in($1),&out($2)" 
+     ],
+     "description":[
+        "Validate a string file."
+     ]
+  },
+  "Check wireframe files":{
+     "prefix":"!CHKTRI",
+     "body":[
+        "!CHKTRI &wiretrin($1tr),&wireptin($1pt),",
+        "        &wiretrou($2tr),&wireptou($2pt),",
+        "        @remdupid=${3:0}"
+     ],
+     "description":[
+        "Check wireframe files."
+     ]
+   },
+   "Find closely spaced collars or points":{
+      "prefix":"!CLOSEPTS",
+      "body":[
+         "!CLOSEPTS &holes($1),&points($2),",
+         "        &closhole($3),&closepts($4),",
+         "        &bhstr($5),&ptsstr($4),",
+         "        *bhid(${6:BHID}),*x(${7:X}),*y(${8:Y}),*z(${9:Z}),",
+         "        @distance=${10:20}"
+      ],
+      "description":[
+         "Check wireframe files."
+      ]
+   },
+  "Cluster/Dendogram":{
+     "prefix":"!CLUSTR",
+     "body":[
+        "!CLUSTR &in($1),&matxin($2),",
+        "        &wiretrou($2tr),&wireptou($2pt),",
+        "        @remdupid=${3:0}"
+     ],
+     "description":[
+        "Crates a cluster analysis (dendogram)"
+     ]
+  },
+  "triangle dip and dip direction":{
+     "prefix":"!COGTRI",
+     "body":[
+        "COGTRI &wtrin($1tr),&wptin($1pt),",
+        "        &wtrout($2tr),&wptout($2pt),&ptnout($3),",
+        "        @vertex=${4:0},@symbol=${5:216},@symsize=${6:2}"
+     ],
+     "description":[
+        "Calculates the centre point and the dip and dip direction of each triangle in a wireframe."
+     ]
+  },
+  "estimation using univariate and multivariate":{
+     "prefix":"!COKRIG",
+     "body":[
+        "COKRIG &samples($1),&proto($2),",
+        "        &epar($3),&filds($4),&vmodel($5),&spar($6),",
+        "        &outmodel($7),&sampout($8),",
+        "        *XPT({$9:XPT}), *YPT({$10:YPT}), *ZPT({$11:ZPT}),",
+        "        *zone1_f($12), *zone2_f($12),",
+        "        *sangl1_f($13), *sangl2_f($14), *sangl3_f($15),",
+        "        *vangl1_f($16), *vangl2_f($17), *vangl3_f($18),",
+        "        @nthreads={$19:1},",
+        "        @da_axis1={$20:3}, da_axis2={$21:1},da_axis3={$22:3}"
+     ],
+     "description":[
+        "Estimation using univariate and multivariate methods:",
+        "ordinary, simple kriging, inverse distance weighting and nearest neighbor."
      ]
   }
 }
