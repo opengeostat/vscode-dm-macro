@@ -332,7 +332,7 @@
   "triangle dip and dip direction":{
      "prefix":"!COGTRI",
      "body":[
-        "COGTRI &wtrin($1tr),&wptin($1pt),",
+        "!COGTRI &wtrin($1tr),&wptin($1pt),",
         "        &wtrout($2tr),&wptout($2pt),&ptnout($3),",
         "        @vertex=${4:0},@symbol=${5:216},@symsize=${6:2}"
      ],
@@ -343,7 +343,7 @@
   "estimation using univariate and multivariate":{
      "prefix":"!COKRIG",
      "body":[
-        "COKRIG &samples($1),&proto($2),",
+        "!COKRIG &samples($1),&proto($2),",
         "        &epar($3),&filds($4),&vmodel($5),&spar($6),",
         "        &outmodel($7),&sampout($8),",
         "        *XPT({$9:XPT}), *YPT({$10:YPT}), *ZPT({$11:ZPT}),",
@@ -361,7 +361,7 @@
   "Combine block models":{
      "prefix":"!COMBMOD",
      "body":[
-        "COMBMOD &proto($1),",
+        "!COMBMOD &proto($1),",
         "        &in1($2),&in2($3),&in3($4),&in4($5),",
         "        &modelout($6),",
         "        @tolernce=${30:0.001}"
@@ -373,7 +373,7 @@
   "Composite over benches":{
      "prefix":"!COMPBE",
      "body":[
-        "COMPBE &in($1),&out($2),",
+        "!COMPBE &in($1),&out($2),",
         "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),*density(${6:DENSITY}),",
         "       *coreloss(${7:CORELOSS}),*corerec(${8:COREREC}),*zone($9),",
         "       @interval=$10,@mingap=${11:0.05},@maxgap=${12:0},@elev=${13:0},",
@@ -386,7 +386,7 @@
   "Composite over benches with selectivity":{
      "prefix":"!COMPBR",
      "body":[
-        "COMPBR &in($1),&out($2),",
+        "!COMPBR &in($1),&out($2),",
         "       *value($3),*bhid(${4:BHID}),*from(${5:FROM}),*to(${6:TO}),",
         "       *density(${7:DENSITY}),*coreloss(${8:CORELOSS}),",
         "       *corerec(${9:COREREC}),*zone($10),",
@@ -401,7 +401,7 @@
   "Composite drillholes downhole by zones":{
      "prefix":"!COMPDH",
      "body":[
-        "COMPDH &in($1),&out($2),",
+        "!COMPDH &in($1),&out($2),",
         "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),",
         "       *density(${6:DENSITY}),*coreloss(${7:CORELOSS}),",
         "       *corerec(${8:COREREC}),*zone($9),*zone2($10),*zone3($11),",
@@ -412,5 +412,133 @@
      "description":[
         "Composite drillholes downhole by zones."
      ]
+  },
+  "Composite using ore/waste criteria":{
+     "prefix":"!COMPSE",
+     "body":[
+        "!COMPSE &in($1),&out($2),",
+        "       *value($3),",
+        "       @cutoff=${4:0},@minore=$5,@maxwaste=${6:0},@minasfr=${7:0.95},",
+        "       @dilute=${8:1},@narwaste=${9:1}"
+     ],
+     "description":[
+        "Composite using ore/waste criteria."
+     ]
+  },
+  "Prepare result files":{
+     "prefix":"!COMRES",
+     "body":[
+        "# Not implemented"
+     ],
+     "description":[
+        "TODO"
+     ]
+  },
+  "Contours from block model to plot":{
+     "prefix":"!CONTOU",
+     "body":[
+        "CONTOU &in($1),&proto($2),&plot($3),",
+        "       *field($4),",
+        "       @vmin=$5,@vmax=$6,@cint=$7,@gridint=$8,",
+        "       @plane=${9:'XY'},@position=$10,@top=$11,@bottom=$12,",
+        "       @hilight=$13,@hicolour=$14,@charsize=${15:3},@aspratio=${16:0.9},",
+        "       @colour=${17:1},@append=${18:0},@xmin=$19,@xmax=$20,",
+        "       @ymin=$21,@ymax=$22,@xscale=$23,@yscale=$24"
+     ],
+     "description":[
+        "Contours from block model to plot."
+     ]
+  },
+  "Contours from block model to strings":{
+     "prefix":"!CONTOU",
+     "body":[
+        "CONTST &in($1),&out($2),*field($3),",
+        "       @vmin=$4,@vmax=$5,@cint=$6,@gridint=$7,",
+        "       @plane=${8:'XY'},@position=$9,@top=$10,@bottom=$11,",
+        "       @smpass=${12:1},@smfactor=${13:0.5},@smthresh=${14:0.0},@optype=${15:4},",
+        "       @hilioght=$16,@hicolour=${17:2},@colour=${18:1}"
+     ],
+     "description":[
+        "Contours from block model to strings."
+     ]
+  },
+  "Copy file":{
+     "prefix":"!COPY",
+     "body":[
+        "COPY &in($1),&out($2)"
+     ],
+     "description":[
+        "Copy a file."
+     ]
+  },
+  "Copy a file adding a record number field":{
+     "prefix":"!COPYNR",
+     "body":[
+        "COPYNR &in($1),&out($2),@base=$3,@incrment=$4"
+     ],
+     "description":[
+        "Copy a file adding a record number field."
+     ]
+  },
+  "Correlation matrices":{
+     "prefix":"!CORREL",
+     "body":[
+        "CORREL &in($1),&fieldlst($2),",
+        "      *f1($3),*f2($4),*f3($5),*f4($6),*fieldnam($7)"
+     ],
+     "description":[
+        "Correlation matrices for all numeric fields."
+     ]
+  },
+  "Count records by key field":{
+     "prefix":"!COUNT",
+     "body":[
+        "!COUNT &in($1),&out($2),",
+        "      *key1($3),*key2($4),*key3($5),*key4($6),",
+        "      @keysort=${7:1}"
+     ],
+     "description":[
+        "Count records by key field."
+     ]
+  },
+  "Calculate volume by contact zone":{
+     "prefix":"!COZONE",
+     "body":[
+        "!COZONE &in($1),&out($2),",
+        "       *rockcode($3),",
+        "       @czxorig=$4,@czyorig=$5,@czzorig=$6,@czmwid=$7,",
+        "       @czbhht=$8,@directn=${9:'X'},@print=${10:0}"
+     ],
+     "description":[
+        "Calculate volume by contact zone."
+     ]
+  },
+  "Crosscorrelation analysis in soil grid":{
+     "prefix":"!CRSCOR",
+     "body":[
+        "# Not implemented"
+     ],
+     "description":[
+        "TODO"
+     ]
+  },
+  "Reserve from percentile of simulated model":{
+     "prefix":"!CSMODEL",
+     "body":[
+        "# Not implemented"
+     ],
+     "description":[
+        "TODO"
+     ]
+  },
+  "Ore/Waste from simulated model":{
+     "prefix":"!CSOWOPT",
+     "body":[
+        "# Not implemented"
+     ],
+     "description":[
+        "TODO"
+     ]
   }
 }
+
