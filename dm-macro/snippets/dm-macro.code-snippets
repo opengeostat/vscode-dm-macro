@@ -1,8 +1,9 @@
 // Pute here list of PROCESESS
 // use https://github.com/truemoid/sublime-dm-macro/blob/master/snippets as reference
 
-// ACCMLT
+
 {
+   // ACCMLT
   "Accumulate":{
      "prefix":"!ACCMLT",
      "body":[
@@ -1475,7 +1476,7 @@
    },
    // LIST
    "Display file":{
-      "prefix":"LIST",
+      "prefix":"!LIST",
       "body":[
          "!LIST not implemented"
       ],
@@ -3185,5 +3186,59 @@
          "Analyse parameters for grade estimation, using the cross-validation method.",
       ]
    },
+
+   // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+   //    This area is to put utils
+   // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+   // General macro template
+   "Simple macro template":{
+      "prefix":"START",
+      "body":[
+       
+       "# ==================================",
+       "# Script description",
+       "# ==================================",
+       "!START M1 macro short description",
+       "",
+       "# put comands here",
+       "",
+       "",
+       "# Remove temporary files.",
+       "!LISTDR &OUT(xxdir), xx?",
+       "!DELETE &IN(xxdir)",
+       "",
+       "!ECHO -------------------",
+       "!ECHO - END OF MACRO M1 -",
+       "!ECHO -------------------",
+       "",
+       "!END",
+ 
+      ],
+      "description":[
+         "A simple Macro Template"
+      ]
+    },
+ 
+    // General loop template
+    "Simple loop template":{
+       "prefix":"LOOP",
+       "body":[
+        
+          "!let $i# = 0",
+          "!loop:let $i# = {$i# + 1}",
+          "  !field $exists# = $1, $count# = $i#,",
+          "    ${2:$field#} = ${3:FIELD}",
+          "  Actions to be repeated go here",
+          "!if $i# < $count#, goto loop",
+  
+       ],
+       "description":[
+          "A simple Macro Template"
+       ]
+    },
+
+
 }
 
