@@ -1,7 +1,7 @@
 // Pute here list of PROCESESS
 // use https://github.com/truemoid/sublime-dm-macro/blob/master/snippets as reference
 
-// TODO: add help on parameters on the description section
+// ACCMLT
 {
   "Accumulate":{
      "prefix":"!ACCMLT",
@@ -10,10 +10,11 @@
         "        *key2($4),@allrecs=${5:0},@unsorted=${6:1}"
      ],
      "description":[
-        "Accumulates sub-totals for up to 25 numeric fields",
-        "for constant values of a keyfield."
+        "Accumulate sub-totals for up to 25 numeric fields,",
+        "for constant values of numeric or alpha keyfields."
      ]
   },
+  // ADDDD
   "Add extra field":{
      "prefix":"!ADDDD",
      "body":[
@@ -23,21 +24,23 @@
         "${5:FIELD2 a 8 y ''}"
      ],
      "description":[
-        "Adds extra fields to a file, ",
-        "requesting the field names and parameters interactively, ",
-        "in the same way as that used for entering a new Data Definition."
+        "Add new alpha or numeric fields to an existing file, ",
+        "specifiying implicit/explicit and default values."
      ]
   },
+  // ADDMOD
   "Add block model":{
      "prefix":"!ADDMOD",
      "body":[
-        "!ADDMOD !&in1($1),&in2($2),&out($3),",
+        "!ADDMOD &in1($1),&in2($2),&out($3),",
         "        @tolernce=${4:0.001}"
      ],
      "description":[
-        "Adds two models together by superimposing one onto another"
+        "Add two models with the same Data Definition together by",
+        "superimposing the second one onto the first."
      ]
   },
+  // ADDTRI
   "Add wireframes":{
      "prefix":"!ADDTRI",
      "body":[
@@ -46,9 +49,11 @@
         "        &wiretrou($3tr),&wireptou($3pt)"
      ],
      "description":[
-        "Combines two pairs of wireframe model files, into a single pair of output files"
+        "Append two sets of wireframe files together to create",
+        "a single set of wireframe files."
      ]
   },
+  // AED
   "Edit files":{
      "prefix":"!AED",
      "body":[
@@ -56,19 +61,22 @@
         "     &apphlp($3),&out($4)"
      ],
      "description":[
-        "File editor for creation, validation and modification of files"
+        "Legacy file editor for creation, validation and", 
+        "modification of files"
      ]
   },
+  // ALFNUM
   "Alpha tto numeric":{
      "prefix":"!ALFNUM",
      "body":[
-        "!alfnum &in($1)${2:,&fieldlst()},&out($3),",
+        "!ALFNUM &in($1)${2:,&fieldlst()},&out($3),",
         "       *f1($4),*f2($5),*f3($6),*f4($7)${8:,*fieldnam()}"
      ],
      "description":[
-        "Copies a file while converting given alphanumeric fields to numeric."
+        "Copy a file while converting given alphanumeric fields to numeric."
      ]
   },
+  // ANISOANG
   "Create anisotropic input":{
      "prefix":"!ANISOANG",
      "body":[
@@ -81,9 +89,10 @@
         "       @plancol=${17:1},@sectcol=${18:2},@wfcol=${19:3},@symsize=${20:2}"
      ],
      "description":[
-        "Aprocess to assist with creating anisotropic input data for modelling processes"
+        "Calculate dip and dip direction angles from string/wireframe data."
      ]
   },
+  // ANOVA1
   "ANOVA statistics":{
      "prefix":"!ANOVA1",
      "body":[
@@ -92,10 +101,24 @@
         "       *key1($3),*key2($4),*key3($5),*key4($6)"
      ],
      "description":[
-        "Aprocess to assist with creating anisotropic input data for modelling processes"
+        "Carry out one-way analysis of variance on groups of replicate values",
+        "of a numeric field in a file."
      ]
   },
+  // APPEND
   "Append files":{
+   "prefix":"!APPEND",
+   "body":[
+      "!append &in1($1),&in2($2),&out($3),",
+      "       @sequence=${4:0},@protodd=${5:0},@print=${6:0}"
+   ],
+   "description":[
+      "AAppend two or more files to create a new ", 
+      "file containing the records of all the input files."
+   ]
+  },
+  // APTOTRUE
+  "Apparent to true angle":{
      "prefix":"!APTOTRUE",
      "body":[
         "!APTOTRUE &in($1),&out($2)",
@@ -103,9 +126,11 @@
         "       @apdipdir=${6:0}"
      ],
      "description":[
-        "Aprocess to assist with creating anisotropic input data for modelling processes"
+        "Convert values in a file from apparent dip angle to true dip angle. ",
+        "Used in dynamic anisotropy."
      ]
   },
+  // ASTRAN
   "Update by sample number":{
      "prefix":"!ASTRAN",
      "body":[
@@ -114,18 +139,21 @@
         "       @sprefix=${4:2},@sdigits=${5:6},@maxerrs=$6,@update=${7:0}"
      ],
      "description":[
-        "Thisprocess reads one or more assay files and updates a  file by matching sample numbers."
+        "Read one or more ASCII sample assay files in SIF format and updates",
+        "a DATAMINE database file by matching sample numbers."
      ]
   },
+  // ATTCHK
   "Check legend definition":{
      "prefix":"!ATTCHK",
      "body":[
         "!ATTCHK &in($1),&out($2),&error($3)"
      ],
      "description":[
-        "This process is used to check the legend definition file prior to running ATTSET"
+        "Check the legend definition file prior to running ATTSET."
      ]
   },
+  // ATTSET
   "Set value of field based on data field":{
      "prefix":"!ATTSET",
      "body":[
@@ -135,9 +163,11 @@
         "       @mode=${12:0},@inrange=${13:0}"
      ],
      "description":[
-        "Set values of nominated attribute fields in a file based on the values of a given data field in the input file."
+        "Set the values of nominated attribute fields in a file based on the",
+        "values of a given data field in the input file."
      ]
   },
+  // AUTOCR
   "Quantify anomalous thresholds on grid":{
      "prefix":"!AUTOCR",
      "body":[
@@ -147,9 +177,11 @@
         "       @sampdist=${8:0},@print=${9:0}"
      ],
      "description":[
-        "Quantify and define anomalous thresholds and halo size on regularly-gridded soil sample lines."
+        "Calculate the auto correlation function R-L of a single field,",
+        "against sample distance or lag."
      ]
   },
+  // AUTOVMOD
   "Autofit variogram":{
      "prefix":"!AUTOVMOD",
      "body":[
@@ -161,9 +193,11 @@
         "       @ANISO=${11:1}"
      ],
      "description":[
-        "Automaticallyfit variogram and cross-variogram models to experimental variogrammodel data"
+        "Fits a variogram model to experimental variograms (optionally",
+        "including cross-variograms)."
      ]
   },
+  // BACKTR
   "Back-transformation":{
      "prefix":"!BACKTR",
      "body":[
@@ -173,9 +207,10 @@
         "       @lotail=${12:1},@lopar=$13,@uptail=${14:2},@uppar=$15"
      ],
      "description":[
-        "Back-transformation from normal distribution."
+        "Back-transform data from a normal distribution."
      ]
   },
+  // BHCOUNT
   "Count of drillholes":{
      "prefix":"!BHCOUNT",
      "body":[
@@ -184,9 +219,10 @@
         "       @parent=${6:1}"
      ],
      "description":[
-        "Count of drillholes to estimate each block."
+        "Count the number of drillholes used to estimate each model cell."
      ]
   },
+  // BLKPER
   "Perimeters around blocks":{
      "prefix":"!BLKPER",
      "body":[
@@ -195,9 +231,10 @@
         "       @smooth=${7:0},@connect=${8:1},@bradjust=${9:0}"
      ],
      "description":[
-        "Creates a set of perimeters around blocks in a model file."
+        "Create a set of perimeters around blocks in a model."
      ]
   },
+  // BLKTRI
   "Blocks to wireframe":{
      "prefix":"!BLKTRI",
      "body":[
@@ -210,6 +247,7 @@
         "Converts block model(s) to wireframe surfaces(s)."
      ]
   },
+  // CANON
   "Canonical analysis":{
      "prefix":"!CANON",
      "body":[
@@ -219,9 +257,12 @@
         "       @nleft=$8,@print=${9:0}"
      ],
      "description":[
-        "Defines mineralized and background by canonical vectors and scores on the basis of two variates"
+        "Define possible mineralized and background samples by the",
+        "calculation of canonical vectors and scores on the basis of",
+        "two variates."
      ]
   },
+  // CDTRAN
   "Transform coordinates":{
      "prefix":"!CDTRAN",
      "body":[
@@ -234,9 +275,11 @@
         "       @factor=${22:1},@inverse=${23:0},@print=${24:0}" 
      ],
      "description":[
-        "General three-dimensional coordinate rotation and translation."
+        " Carry out a simple translation and/or rotation on X,Y and Z coordinates.", 
+        "Can be used to transform points into a rotated model space."
      ]
   },
+  // CELLCONF
   "Confidence from simulations":{
      "prefix":"!CELLCONF",
      "body":[
@@ -245,10 +288,11 @@
         "       @plot_tbl($7),@display($8)" 
      ],
      "description":[
-        "Creates a summary table and graph of confidence for parent cells in a block model",
-        " which has been created using conditional simulation."
+        "Create a summary table and graph of confidence",
+        "for parent cells in a conditionally simulated model."
      ]
   },
+  // CHANNL3D
   "Channel to drillhole":{
      "prefix":"!CHANNL3D",
      "body":[
@@ -258,9 +302,10 @@
         "       @extend($13:1),@endpoint($14:1)" 
      ],
      "description":[
-        "converts Channel data and survey into a 'desurveyed' drillholes."
+        "Produce a file of channel samples independently located in space."
      ]
   },
+  // CHART
   "Data to chart":{
      "prefix":"!CHART",
      "body":[
@@ -281,19 +326,21 @@
         "       @progress=${53:1},@display=${54:1}" 
      ],
      "description":[
-        "Transforms data into a suitable format for creating charts", 
-        "andoptionally creates and displays a draft quality plot."
+        "Transform data into a suitable format for creating charts."
      ]
   },
+  // CHECKIT
   "Validate a string file":{
      "prefix":"!CHECKIT",
      "body":[
         "!CHECKIT &in($1),&out($2)" 
      ],
      "description":[
-        "Validate a string file."
+        "Carry out validation checks on string data ",
+        "identifying duplicate points and strings."
      ]
   },
+  // CHKTRI
   "Check wireframe files":{
      "prefix":"!CHKTRI",
      "body":[
@@ -302,9 +349,10 @@
         "        @remdupid=${3:0}"
      ],
      "description":[
-        "Check wireframe files."
+        "Check wireframe point and triangle files."
      ]
    },
+   // CLOSEPTS
    "Find closely spaced collars or points":{
       "prefix":"!CLOSEPTS",
       "body":[
@@ -315,9 +363,10 @@
          "        @distance=${10:20}"
       ],
       "description":[
-         "Check wireframe files."
+         "Identifies closely spaced points or collars within a specified distance."
       ]
    },
+   // CLUSTR
   "Cluster/Dendogram":{
      "prefix":"!CLUSTR",
      "body":[
@@ -326,9 +375,11 @@
         "        @remdupid=${3:0}"
      ],
      "description":[
-        "Crates a cluster analysis (dendogram)"
+        "R-Mode hierarchical cluster analysis (Agglomerative)",
+        "with a choice of correlation matrices."
      ]
   },
+  // COGTRI
   "triangle dip and dip direction":{
      "prefix":"!COGTRI",
      "body":[
@@ -337,9 +388,11 @@
         "        @vertex=${4:0},@symbol=${5:216},@symsize=${6:2}"
      ],
      "description":[
-        "Calculates the centre point and the dip and dip direction of each triangle in a wireframe."
+        "Add the centre of gravity coordinates and optionally",
+        "the vertex coordinates of each triangle to a wireframe triangle file."
      ]
   },
+  // COKRIG
   "estimation using univariate and multivariate":{
      "prefix":"!COKRIG",
      "body":[
@@ -354,10 +407,10 @@
         "        @da_axis1={$20:3}, da_axis2={$21:1},da_axis3={$22:3}"
      ],
      "description":[
-        "Estimation using univariate and multivariate methods:",
-        "ordinary, simple kriging, inverse distance weighting and nearest neighbor."
+        "Performs grade estimation using multivariate ordinary kriging."
      ]
   },
+  // COMBMOD
   "Combine block models":{
      "prefix":"!COMBMOD",
      "body":[
@@ -367,9 +420,10 @@
         "        @tolernce=${30:0.001}"
      ],
      "description":[
-        "Combine up to 20 block models with different prototype."
+        "Composite desurveyed drillhole sample values over horizontal benches."
      ]
   },
+  // COMPBE
   "Composite over benches":{
      "prefix":"!COMPBE",
      "body":[
@@ -380,9 +434,12 @@
         "       @mincomp=$14,@maxcomp=$15,@loss=${16:0},@print=${17:0}"
      ],
      "description":[
-        "Composite over benches."
+        "Composite desurveyed drillhole sample data over horizontal benches,",
+        "with computation of a recovered grade and fraction for a specified",
+        "field at a given cut-off."
      ]
   },
+  // COMPBR
   "Composite over benches with selectivity":{
      "prefix":"!COMPBR",
      "body":[
@@ -395,9 +452,12 @@
         "       @print=${19:0}"
      ],
      "description":[
-        "Composite over benches with selectivity."
+        "Composite desurveyed drillhole sample data over horizontal benches,",
+        "with computation of a recovered grade and fraction for a specified",
+        "field at a given cut-off."
      ]
   },
+  // COMPDH
   "Composite drillholes downhole by zones":{
      "prefix":"!COMPDH",
      "body":[
@@ -410,9 +470,21 @@
         "       @print=${19:0}"
      ],
      "description":[
-        "Composite drillholes downhole by zones."
+        "Composite drillhole sample data values",
+        "down each hole at a specified interval."
      ]
   },
+  // COMPEV
+  "Composite in blast":{
+     "prefix":"!COMPEV",
+     "body":[
+        "!COMPEV not implemented"
+     ],
+     "description":[
+        "Design and evaluate a composite in a blast."
+     ]
+  },
+  // COMPSE
   "Composite using ore/waste criteria":{
      "prefix":"!COMPSE",
      "body":[
@@ -422,18 +494,21 @@
         "       @dilute=${8:1},@narwaste=${9:1}"
      ],
      "description":[
-        "Composite using ore/waste criteria."
+        "Composite drillhole data by optimizing the composite",
+        "interval using ore and waste criteria."
      ]
   },
-  "Prepare result files":{
-     "prefix":"!COMRES",
-     "body":[
-        "# Not implemented"
-     ],
-     "description":[
-        "TODO"
-     ]
+  // CONPOL
+  "Creates convex polygon":{
+   "prefix":"!CONPOL",
+   "body":[
+      "!CONPOL not implemented"
+   ],
+   "description":[
+      "Createa convex polygon around an X,Y point data set."
+   ]
   },
+  // CONTOU
   "Contours from block model to plot":{
      "prefix":"!CONTOU",
      "body":[
@@ -446,11 +521,12 @@
         "       @ymin=$21,@ymax=$22,@xscale=$23,@yscale=$24"
      ],
      "description":[
-        "Contours from block model to plot."
+        "Generate a contour plot file from an orebody model."
      ]
   },
+  // CONTST
   "Contours from block model to strings":{
-     "prefix":"!CONTOU",
+     "prefix":"!CONTST",
      "body":[
         "CONTST &in($1),&out($2),*field($3),",
         "       @vmin=$4,@vmax=$5,@cint=$6,@gridint=$7,",
@@ -459,27 +535,31 @@
         "       @hilioght=$16,@hicolour=${17:2},@colour=${18:1}"
      ],
      "description":[
-        "Contours from block model to strings."
+        "Generate contour strings from a model of a specified field."
      ]
   },
+  // COPY
   "Copy file":{
      "prefix":"!COPY",
      "body":[
         "COPY &in($1),&out($2)"
      ],
      "description":[
-        "Copy a file."
+        "Copy a file to a new file, optionally applying retrieval crtiteria."
      ]
   },
+  // COPYNR
   "Copy a file adding a record number field":{
      "prefix":"!COPYNR",
      "body":[
         "COPYNR &in($1),&out($2),@base=$3,@incrment=$4"
      ],
      "description":[
-        "Copy a file adding a record number field."
+        "Copy a file adding a record number field RECORDNO. A base value",
+        "and increment can optionally be specified."
      ]
   },
+  // CORREL
   "Correlation matrices":{
      "prefix":"!CORREL",
      "body":[
@@ -487,9 +567,10 @@
         "      *f1($3),*f2($4),*f3($5),*f4($6),*fieldnam($7)"
      ],
      "description":[
-        "Correlation matrices for all numeric fields."
+        "Calculate bivariate statistics on pairs of numeric fields in a file."
      ]
   },
+  // COUNT
   "Count records by key field":{
      "prefix":"!COUNT",
      "body":[
@@ -498,9 +579,11 @@
         "      @keysort=${7:1}"
      ],
      "description":[
-        "Count records by key field."
+        "Count the number of records in a file that have the same",
+        "value of up to 10 sorted Keyfields."
      ]
   },
+  // COZONE
   "Calculate volume by contact zone":{
      "prefix":"!COZONE",
      "body":[
@@ -510,35 +593,2597 @@
         "       @czbhht=$8,@directn=${9:'X'},@print=${10:0}"
      ],
      "description":[
-        "Calculate volume by contact zone."
+        "Investigate the relationship between mining parameters and",
+        "the rocktype composition of each mining volume, or contact zone."
      ]
   },
+  // CRSCOR
   "Crosscorrelation analysis in soil grid":{
      "prefix":"!CRSCOR",
      "body":[
-        "# Not implemented"
+        "!CRSCOR Not implemented"
      ],
      "description":[
-        "TODO"
+        "Cross correlation analysis to quantify and define anomalous",
+        "thresholds and halo size on regularly gridded soil sample lines."
      ]
   },
+  // CSMODEL
   "Reserve from percentile of simulated model":{
      "prefix":"!CSMODEL",
      "body":[
-        "# Not implemented"
+        "!CSMODEL Not implemented"
      ],
      "description":[
-        "TODO"
+        "Create an output model, reserve or plot file based on percentile",
+        "values, simulated points and cutoff grades."
      ]
   },
+  //  CSOWOPT
   "Ore/Waste from simulated model":{
      "prefix":"!CSOWOPT",
      "body":[
-        "# Not implemented"
+        "!CSOWOPT Not implemented"
      ],
      "description":[
-        "TODO"
+        "Identify ore and waste blocks in a conditionally simulated model",
+        "by minimizing the cost of incorrectly classifying ore as waste",
+        "or waste as ore."
      ]
-  }
+  },
+  // DDCOPY
+  "Copy a data definition":{
+     "prefix":"!DDCOPY",
+     "body":[
+        "!DDCOPY &in($1),&out($2)"
+     ],
+     "description":[
+        "Copy just the Data Definition of a file to a new file",
+        "(create a new file with no records)."
+     ]
+  },
+  // DDLIST
+  "Display data definition":{
+     "prefix":"!DDLIST",
+     "body":[
+        "!DDLIST &in($1)"
+     ],
+     "description":[
+        "Display the Data Definition (DD) of a file: its field names,",
+        "types and lengths."
+     ]
+  },
+  // DECILE
+  "Calculate deciles":{
+     "prefix":"!DECILE",
+     "body":[
+        "!DECILE &in($1),&priout($2),&decout($3),&splitout($4),",
+        "       *value($5),*select($6),",
+        "       @cutoff=$7,@topcut=${8:0},@tcutoff=$9,@criteria=$10"
+     ],
+     "description":[
+        "Perform a decile analysis of a set of sample data, optionally",
+        "applying a cutoff grade and top cut value."
+     ]
+  },
+  // DECLUST
+  "Decluster sample data":{
+     "prefix":"!DECLUST",
+     "body":[
+        "!DECLUST &in($1),&out($2),&wtout($3),",
+        "       x($4),*y($5),*z($6),*wtfield($7),",
+        "       @method=${8:1},@xgrid=$9,@ygrid=$10,@zgrid=$11,",
+        "       @xorig=${12:0},@yorig=${13:0},@zorig=${14:0},@centre=${15:0}"
+     ],
+     "description":[
+        "Decluster sample data."
+     ]
+  },
+  // DECODE
+  "Decodes a field through a dictionary":{
+     "prefix":"!DECODE",
+     "body":[
+        "!DECODE &in($1),&dict($2),&out($3),",
+        "       *code($4),*text($5)"
+     ],
+     "description":[
+        "Decode a named field in the input file using a dictionary file."
+     ]
+  },
+  // DELETE
+  "Delete a file":{
+     "prefix":"!DELETE",
+     "body":[
+        "!DELETE &in($1),",
+        "       @confirm=${2:0}"
+     ],
+     "description":[
+        "Delete a Datamine file, optionally specifying a Catalog file."
+     ]
+  },
+  // DESURV
+  "Desurvey drillhole data":{
+     "prefix":"!DESURV",
+     "body":[
+        "!DESURV  &in1($1),&in2($2),&out($3),",
+        "       *bhid(${4:BHID}),*xcollar(${5:XCOLLAR}),*ycollar(${6:YCOLLAR}),*zcollar(${7:ZCOLLAR}),",
+        "       *from(${8:FROM}),*to(${9:TO}),*at(${10:AT}),*brg(${11:BRG}),*dip(${12:DIP}),",
+        "       @survsmth=${13:1},@print=${14:0}"
+     ],
+     "description":[
+        " Convert a set of sample, collar and optionally downhole survey",
+        "data into a single static drillhole file with X, Y ans Z coordinates."
+     ]
+  },
+  // DIFFRN
+  "Relational difference operation":{
+     "prefix":"!DIFFRN",
+     "body":[
+        "!DIFFRN &in1($1),&in2($2),&out($3),",
+        "       *key1($4),*key2($5),*key3($6),*key4($7)"
+     ],
+     "description":[
+        "Delete records from the first input file if they match the",
+        "specified keyfield values in the second input file."
+     ]
+  },
+  // DILUTE
+  "Computes downhole dilution envelopes":{
+     "prefix":"!DILUTE",
+     "body":[
+        "!DILUTE &in($1),&out($2),",
+        "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),*seamid(${6:SEAMID}),",
+        "       @dilup=$7,@dildown=$8,@thinnest=$9"
+     ],
+     "description":[
+        "Extend drillhole seam intersection data to allow for dilution above and below seams."
+     ]
+  },
+  // DILUTMOD
+  "Dilute model":{
+     "prefix":"!DILUTMOD",
+     "body":[
+        "!DILUTE &in($1),&out($2),",
+        "       *bhid(${3:BHID}),*from(${4:FROM}),*to(${5:TO}),*seamid(${6:SEAMID}),",
+        "       @dilup=$7,@dildown=$8,@thinnest=$9"
+     ],
+     "description":[
+        "Dilute the grades in a parent cell block model by a user defined dilution width.",
+        "Grades are adjusted in cells which have adjacent cells of a different rock type."
+     ]
+  },
+  // DISCAN
+  "Discriminant function analysis":{
+     "prefix":"!DISCAN",
+     "body":[
+        "!DISCAN &in($1),&centrds($2),&functs($3),&scores($4),",
+        "       *groupid($5),*sampid($6),",
+        "       *f1($7),*f2($8),*f3($9),*f4($10),",
+        "       @resum=${11:0},@primat=${12:0},@prisco=${13:0}"
+     ],
+     "description":[
+        "Establish a set of rules using geological control groups which can then be applied",
+        "to the classification of unknown samples using the DISCLA process."
+     ]
+  },
+  // DISCLA
+  "Discriminant function classification":{
+     "prefix":"!DISCLA",
+     "body":[
+        "!DISCLA &in($1),&infuncts($2),&incentrd($3),&out($4),",
+        "       *groupid($5),*sampid($6),",
+        "       *f1($7),*f2($8),*f3($9),*f4($10)"
+     ],
+     "description":[
+        "Multiple discriminant classification of unknown samples into groups using the",
+        "discriminant functions and group centroids calculated in the DISCAN process."
+     ]
+  },
+  // DISPLA
+  "Display plot file":{
+     "prefix":"!DISPLA",
+     "body":[
+        "!DISPLA &in($1),",
+        "       @hardcopy=${2:0},@truesize=${3:0},@xoffset=${4:0},@yoffset=${5:0},",
+        "       @pause=$6,@scale=$7"
+     ],
+     "description":[
+        "Display a Datamine plot file in the Studio graphics window."
+     ]
+  },
+  // DMEDIT
+  "Edit file in place":{
+   "prefix":"!DMEDIT",
+   "body":[
+      "!DMEDIT &in($1)"
+   ],
+   "description":[
+      "Basic in-place file editing, including editing default values and field names."
+   ]
+  },
+  // DMFD
+  "Output model for FOUR-D":{
+     "prefix":"!DMFD",
+     "body":[
+        "!DMFD &in($1)"
+     ],
+     "description":[
+        "Output a block model in a format suitable for input to Whittle FOUR-D."
+     ]
+  },
+  // DTMCUT
+  "Evaluate model between DTMs":{
+     "prefix":"!DTMCUT",
+     "body":[
+        "!DTMCUT &wiretr1($1tr),&wirept1($1pt),&wiretr2($2tr),&wirept2($2pt),",
+        "       &proto($3),&perimin($4),&cutmodou($5),&results($6),",
+        "       *density($7),*cutfld($8),*attrib($9),",
+        "       @cutden=${10:1},@fillden=${11:1},@splits=${12:0},@cutval=${13:-1},",
+        "       @fillval=${14:1}"
+     ],
+     "description":[
+        " Create a cut and fill model and report between two wireframe surfaces."
+     ]
+  },
+  // DTMMOD
+  "Cut and fill volumes":{
+      "prefix":"!DTMMOD",
+      "body":[
+      "!DTMMOD not implemented"
+      ],
+      "description":[
+         "Model cut and fill volumes, based on original model and updated wireframe surface (DTMs)."
+      ]
+  },
+  // DXFOUT
+  "Export plots to DXF":{
+      "prefix":"!DXFOUT",
+      "body":[
+      "!DXFOUT not implemented"
+      ],
+      "description":[
+         "Output a datamine database plotfile to an external system file in DXF format."
+      ]
+  },
+  // ELLIPSE
+  "Create Ellipsoid":{
+      "prefix":"!ELLIPSE",
+      "body":[
+         "!ELLIPSE &srcparm($1), &wiretr($2), &wirept($3),",
+         "         @srefnum=$4, @print=${5:0}"
+      ],
+      "description":[
+         "Create a wireframe ellipsoid corresponding to Estimation",
+         "parameters to visually verify search volumes."
+      ]
+  },
+  // ENGLOG
+  "Decode logs":{
+      "prefix":"!ENGLOG",
+
+      "body":[
+         "!ENGLOG not implemented"
+      ],
+      "description":[
+         "Translate coded drillhole logs though a dictionary",
+         "file into readable English equivalents."
+      ]
+   },
+   // ENVSEQ
+   "CDecode logs":{
+      "prefix":"!ENVSEQ", 
+
+      "body":[
+         "!ENVSEQ not implemented"
+      ],
+      "description":[
+         "Create an extraction sequence for the envelopes generated by the MODENV process."
+      ]
+   },
+   // ESTIMA
+   "Interpolate in block model":{
+      "prefix":"!ESTIMA",
+      "body":[
+         "!ESTIMA &proto($1),&in($2),&model($3),",
+         "&srcparm(${4:xxspar}),&estparm(${5:xxepar}),&vmodparm(${6:xxvpar}),",
+         "*x(${7:X}),*y(${8:Y}),*z(${9:Z}),*zone1_f($10),*key(${11:BHID}),",
+         "@discmeth=${12:1},@xpoints=${13:1},@ypoints=${14:1},@zpoints=${15:1},",
+         "@parent=${16:1},@copyval=${17:0},@print=${18:0}"
+      ],
+      "description":[
+         "Studio process for estimating grades into a model (Used within Advance Interpolation command)."
+      ]
+   },
+   // EXPFLD
+   "Add records to a file":{
+      "prefix":"!EXPFLD",
+      "body":[
+         "!EXPFLD not implemented"
+      ],
+      "description":[
+         "Add records to a file so that a record is output for given increments",
+         "of a start field until an end field value is reached."
+      ]
+   },
+   // EXPFLD
+   "Expand perimeters to minimum withd":{
+      "prefix":"!EXPMMW",
+      "body":[
+         "!EXPMMW not implemented"
+      ],
+      "description":[
+         "Expand a set of planar perimeters according to a user defined",
+         "minimum mining width and create their centre lines."
+      ]
+   },
+   // EXPNDMOD
+   "Fully fill block model with blocks":{
+      "prefix":"!EXPNDMOD",
+      "body":[
+         "!EXPNDMOD not implemented"
+      ],
+      "description":[
+         "Expand a model to cover a larger volume and fill it with cells.",
+         "The volume can optionally be defined and constrained",
+         "by input wireframe surfaces or perimeters."
+      ]
+   },
+   // EXPORT
+   "Export to external file format":{
+      "prefix":"!EXPORT",
+      "body":[
+         "!EXPORT not implemented"
+      ],
+      "description":[
+         "Export data using a specified Data Source Driver."
+      ]
+   },
+   // EXTEND
+   "Add data rows to a table":{
+      "prefix":"!EXTEND",
+      "body":[
+         "!EXTEND &in($1)",
+         "${3:sysfile or blank line}",
+         "${4:comma delimited data or blank line}"
+      ],
+      "description":[
+         " Extends an existing file with data entered in free format."
+      ]
+   },
+   // EXTNDF
+   "Add data in fixed format":{
+      "prefix":"!EXTNDF",
+      "body":[
+         "!EXTNDF not implemented"
+      ],
+      "description":[
+         "Extends an existing file with data entered in fixed format."
+      ]
+   },
+   // EXTRA
+   "Expresion Translator":{
+      "prefix":"!EXTRA",
+      "body":[
+         "!EXTRA &in($1),&out($2)",
+         "$3",
+         "go"
+      ],
+      "description":[
+         "Create and modify values in a file using mathematical and algebraic expressions."
+      ]
+   },
+   // FACTOR
+   "Define factors from correlation":{
+      "prefix":"!FACTOR",
+      "body":[
+         "!FACTOR not implemented"
+      ],
+      "description":[
+         "Define a number of factors from the common inter-correlation",
+         "between variables using the correlation (R) matrix."
+      ]
+   },
+   // FDIN 
+   "Model from Whittle FOUR-D":{
+      "prefix":"!FDIN",
+      "body":[
+         "!FDIN not implemented"
+      ],
+      "description":[
+         "Create a Datamine model file from a Whittle FOUR-D results file."
+      ]
+   },
+   // FDOUT
+   "Whittle FOUR-D from model":{
+      "prefix":"!FDOUT",
+      "body":[
+         "!FDOUT not implemented"
+      ],
+      "description":[
+         " Output a Datamine model file in Whittle FOUR-D format."
+      ]
+   },
+   // FFUNC 
+   "Estimate support effect":{
+      "prefix":"!FFUNC",
+      "body":[
+         "!FFUNC not implemented"
+      ],
+      "description":[
+         "Estimate the variance of a point in a block."
+      ]
+   },
+   // FILCOM
+   "Explicit to implicit fields":{
+      "prefix":"!FILCOM",
+      "body":[
+         "!FILCOM not implemented"
+      ],
+      "description":[
+         "Convert all explicit fields with a constant value to implicit fields."
+      ]
+   },
+   // FILEXP  
+   "Explicit to implicit field":{
+      "prefix":"!FILEXP",
+      "body":[
+         "!FILEXP not implemented"
+      ],
+      "description":[
+         "Convert all implicit fields in a file to be explicit."
+      ]
+   },
+   // FILTPO 
+   "Filter spatial duplicates":{
+      "prefix":"!FILTPO",
+      "body":[
+         "!FILTPO &in1($1),&in2($2),&out($3),",
+         "&in1($1),&in2($2),&out($3),",
+         "@radius=${7:0}"
+      ],
+      "description":[
+         "Filter coincident or adjacent points from an input file, optionally comparing with a second input file."
+      ]
+   },
+   // FORMAT
+   "Tabulated report":{
+      "prefix":"!FORMAT",
+      "body":[
+         "!FORMAT not implemented"
+      ],
+      "description":[
+         "Generate a tabulated report for output to the screen or to a system file."
+      ]
+   },
+   // FXIN    
+   "Input FOUR-X results file":{
+      "prefix":"!FXIN",
+      "body":[
+         "!FXIN not implemented"
+      ],
+      "description":[
+         "Input FOUR-X results file."
+      ]
+   },
+   // FXOUT   
+   "Output model to Whittle FOUR-X format":{
+      "prefix":"!FORMAT",
+      "body":[
+         "!FORMAT not implemented"
+      ],
+      "description":[
+         "Output a model to Whittle FOUR-X format."
+      ]
+   },
+   // GAUSAN  
+   "Gaussian anamorphose":{
+      "prefix":"!GAUSAN",
+      "body":[
+         "!GAUSAN not implemented"
+      ],
+      "description":[
+         "Perform a gaussian anamorphose transformation on a set of sample data."
+      ]
+   },
+   // GAUSANAM
+   "Gaussian anamorphose for UC":{
+      "prefix":"!GAUSANAM",
+      "body":[
+         "!GAUSANAM not implemented"
+      ],
+      "description":[
+         "Transform a non-Gaussian distribution into a Gaussian distribution. Used as part of Uniform Conditioning."
+      ]
+   },
+   // GENTRA
+   "Transform data fields":{
+      "prefix":"!GENTRA",
+      "body":[
+         "!GENTRA not implemented"
+      ],
+      "description":[
+         "Transform data fields using one or more standard transformation functions."
+      ]
+   },
+   // GRADE
+   "Interpolate grades":{
+      "prefix":"!GRADE",
+      "body":[
+         "!GRADE &proto($1),&in($2),&model($3),",
+         "       *x(${4:X}),*y(${5:Y}),*z(${6:Z}),*value($7),",
+         "       *numsam($8),*variance($9),*zone($10),*length($11),",
+         "       @sdist1=${12:100},@sdist2=${13:100},@sdist3=${14:100},",
+         "       @sangle1=${15:0},@sangle2=${16:0},@sangle3=${17:0},",
+         "       @saxis1=${18:3},@saxis2=${19:1},@saxis3=${20:3},",
+         "       @minnum=${21:3},@maxnum=${22:20},@minoct=${23:0},@minperoc=${24:1},",
+         "       @maxperoc=${25:0},@imethod=${26:2},@power=${27:2},@nstruct=${28:1},",
+         "       @nugget=${29:0},@st1var=${30:1},@st1rang1=${31:100},@st1rang2=${32:100},",
+         "       @st1rang3=${33:100},@st2var=${34:1},@st2rang1=${35:100},@st2rang2=${36:100},",
+         "       @st2rang3=${37:100},@parent=${38:0},@xpoints=${39:3},@ypoints=${40:3},",
+         "       @zpoints=${41:3},@xsubcell=${42:1},@ysubcell=${43:1},@zsubcell=${44:1},",
+         "       @print=${45:0}",
+      ],
+      "description":[
+         "Interpolate grades into a block model using basic methods."
+      ]
+   },
+   // GRIDDC
+   "Optimize decluster grid size":{
+      "prefix":"!GRIDDC",
+      "body":[
+         "!GRIDDC not implemented"
+      ],
+      "description":[
+         "Optimize decluster grid size"
+      ]
+   },
+   // GRTON 
+   "Grades and tonnages from GAUSAN":{
+      "prefix":"!GRTON",
+      "body":[
+         "!GRTON not implemented"
+      ],
+      "description":[
+         "Calculate grades and tonnages using results from GAUSAN."
+      ]
+   },
+   // HELP
+   "Display the online help":{
+      "prefix":"!HELP",
+      "body":[
+         "!HELP <commad name>"
+      ],
+      "description":[
+         "Display the online help system for your application (add a command name to show context help)."
+      ]
+   },
+   // HISFIT
+   "Histogram least-square distribution fitting":{
+      "prefix":"!HISFIT",
+      "body":[
+         "!HISFIT not implemented"
+      ],
+      "description":[
+         "Perform interactive histogram least-square distribution fitting."
+      ]
+   },
+   // HISTOG
+   "frequency histogram":{
+      "prefix":"!HISTOG",
+      "body":[
+         "!HISTOG not implemented"
+      ],
+      "description":[
+         "Generate a frequency histogram and a cumulative frequency histogram for any numeric field."
+      ]
+   },
+   // HOLES3D 
+   "static drillholes desurvey and merging":{
+      "prefix":"!HOLES3D",
+      "body":[
+         "!HOLES3D &collar(${1:xx-collar}),&survey(${2:xx-survey}),",
+         "         &sample1(${3:xx-assay}),&sample2($4),&sample3($5),&sample4($6),",
+         "         &sample5($7),&sample6($8),&out($9),",
+         "         &holesmry(${10:xx-h3d-smry}),&errors(${11:xx-h3d-smry}),",
+         "         *bhid(BHID),*xcollar(XCOLLAR),*ycollar(YCOLLAR),*zcollar(ZCOLLAR),",
+         "         *from(FROM),*to(TO),*at(AT),*brg(BRG),*dip(DIP),",
+         "         @survsmth=1,@endpoint=0,@prompt=1,@dipmeth=1,@print=0"
+      ],
+      "description":[
+         "Convert sample, collars and optionally downhole survey data",
+         "into a static drillholes file with X, Y and Z coordinates."
+      ]
+   },
+   // HOLMER  
+   "Merge drillholes":{
+      "prefix":"!HOLMER",
+      "body":[
+         "!HOLMER  &in1($1),&in2($2),&out($3),",
+         "         *bhid(${4:BHID}),*from(${5:FROM}),*to(${6:TO})"
+      ],
+      "description":[
+         "Merge two sets of drillhole data samples each with different downhole distances."
+      ]
+   },
+   // IGESIN
+   "AutoCAD IGES to plot":{
+      "prefix":"!IGESIN",
+      "body":[
+         "!IGESIN not implemented"
+      ],
+      "description":[
+         "Convert an AutoCAD IGES file to a Datamine Plot File."
+      ]
+   },
+   // IGESOUT
+   "Plot to AutoCAD IGES":{
+      "prefix":"!IGESOUT",
+      "body":[
+         "!IGESOUT not implemented"
+      ],
+      "description":[
+         "Output a Datamine Plot File as an AutoCAD IGES file."
+      ]
+   },
+   // IJKGEN
+   "Recalculate the IJK":{
+      "prefix":"!IJKGEN",
+      "body":[
+         "!IJKGEN  &proto($1),&in($2),&out($3),",
+         "         *x($4),*y($5),*z($6),",
+         "         @psmodel=${14:0}"
+      ],
+      "description":[
+         "Recalculate the IJK index values in a model using the X, Y ",
+         "and Z values and the model prototype definition."
+      ]
+   },
+   // IMPORT
+   "Import files":{
+      "prefix":"!IMPORT",
+      "body":[
+         "!IMPORT This is not a command"
+      ],
+      "description":[
+         "Run the data import function to load data into memory from an external data source."
+      ]
+   },
+   // INDATA
+   "Enter CSV data with DD":{
+      "prefix":"!INDATA",
+      "body":[
+         "!INDATA not implemented"
+      ],
+      "description":[
+         "Enter CSV data either from the keyboard or from an external",
+         "CSV file using a matching Datamine Data Definition (DD) file."
+      ]
+   },
+   // INDEST  
+   "Indicator Estimator":{
+      "prefix":"!INDEST",
+      "body":[
+         "!INDEST not implemented"
+      ],
+      "description":[
+         "Use the IE method to estimate grades into a block model",
+         "using the CDF of indicator transformed sample grades."
+      ]
+   },
+   // INPDDF  
+   "File from DD file":{
+      "prefix":"!INPDDF",
+      "body":[
+         "!INPDDF &out($1)", 
+         "# Add sysfile here",
+         "!rem"
+      ],
+      "description":[
+         "Convert data definition and regular space separated output",
+         "file produced by the OUTPUT process to a Datamine file."
+      ]
+   },
+   // INPFIL
+   "Import file and define DD":{
+      "prefix":"!INPFIL",
+      "body":[
+         "!INPFIL &out($1)", 
+         "${2:description or blank line}",
+         "FIELD n y -",
+         "FIELD a 8 y ''",
+         "]",
+         "y",
+         "Name of system file or blank.",
+         "Enter data here or remove this line",
+         "!rem"
+      ],
+      "description":[
+         "Specify a Data Definition (DD) to create a new file and enter",
+         "CSV data from the keyboard or an external file to populate it."
+      ]
+   },
+   // INPFML  
+   "Import FF file and define DD":{
+      "prefix":"!INPFML",
+      "body":[
+         "!INPFML not implemented"
+      ],
+      "description":[
+         "Specify a Data Definition (DD) to create a new file and enter",
+         "fixed format data from the keyboard or an external file to populate it."
+      ]
+   },
+   // INPUTC
+   "Import text file":{
+      "prefix":"!INPUTC",
+      "body":[
+         "!INPUTC not implemented"
+      ],
+      "description":[
+         "Input text records from either a text file or the keyboard to create a Datamine file."
+      ]
+   },
+   // INPUTD
+   "Build DD file":{
+      "prefix":"!INPUTD",
+      "body":[
+         "!INPUTD &out($1)",
+         "${2:description or blank line}",
+         "ALPHA a 12 y ''",
+         "NUMERIC n y -",
+         "]",
+         "y"
+      ],
+      "description":[
+         "Create a file containing a Data Definition only by",
+         "specifying its field names, default values and types."
+      ]
+   },
+   // INPUTW
+   "Enter fixed format data":{
+      "prefix":"!INPUTW",
+      "body":[
+         "!INPUTW not implemented"
+      ],
+      "description":[
+         "Enter fixed format data from the keyboard or a text file",
+         "into a Datamine file using an existing Datamine Data Definition file."
+      ]
+   },
+   // IPDNNEST
+   "Interpolate grades (Basic)":{
+      "prefix":"!IPDNNEST",
+      "body":[
+         "!IPDNNEST not implemented"
+      ],
+      "description":[
+         "Interpolate grades into a block model using basic methods."
+      ]
+   },
+   // IPDNPG
+   "Interpolate grades (non-parametric)":{
+      "prefix":"!IPDNPG",
+      "body":[
+         "!IPDNPG not implemented"
+      ],
+      "description":[
+         "Interpolate grades into block model cells using non-parametric methods."
+      ]
+   },
+   // ISOHOL
+   "Plot drillholes":{
+      "prefix":"!ISOHOL",
+      "body":[
+         "!ISOHOL not implemented"
+      ],
+      "description":[
+         "Generate a plot file showing an isometric view of drillholes."
+      ]
+   },
+   // ISOMET
+   "Plot wireframe surface of a block model":{
+      "prefix":"!ISOMET",
+      "body":[
+         "!ISOMET not implemented"
+      ],
+      "description":[
+         "Generate a plot file of an isometric view of a wireframe surface of a block model."
+      ]
+   },
+   // ISOPER
+   "view of perimeters and strings":{
+      "prefix":"!ISOPER",
+      "body":[
+         "!ISOPER not implemented"
+      ],
+      "description":[
+         "Generate an isometric view of perimeters and strings."
+      ]
+   },
+   // ISOTRI
+   "view of a wireframe model":{
+      "prefix":"!ISOTRI",
+      "body":[
+         "!ISOTRI not implemented"
+      ],
+      "description":[
+         "Generate a plot file of an isometric view of a wireframe model."
+      ]
+   },
+   // JOIN
+   "Join files":{
+      "prefix":"!JOIN",
+      "body":[
+         "!JOIN &in1($1),&in2($2),&out($3),",
+         "      *key1($4),*key2($5),*key3($6),*key4($7),",
+         "      @subsetr=${8:0},@subsetf=${9:0},@cartjoin=${10:0},",
+         "      @print=${11:0}"
+      ],
+      "description":[
+         "Join two sorted files on one or more keyfields."
+      ]
+   },
+   // KNA
+   "Kriging neighbourhood analysis":{
+      "prefix":"!KNA",
+      "body":[
+         "!KNA not implemented"
+      ],
+      "description":[
+         "Calculates grade estimation statistics over a range of test parameters for use in Kriging neighbourhood analysis."
+      ]
+   },
+   // LAYOUT
+   "blast hole layout":{
+      "prefix":"!LAYOUT",
+      "body":[
+         "!LAYOUT not implemented"
+      ],
+      "description":[
+         "Construct a blast hole layout within a blast area."
+      ]
+   },
+   // LINK
+   "Link a Datamine file":{
+      "prefix":"!LINK",
+      "body":[
+         "!LINK not implemented"
+      ],
+      "description":[
+         "Link a Datamine file outside the project folder to a file inside the project folder (macro only)."
+      ]
+   },
+   // LINK3D
+   "link strings to form wireframe":{
+      "prefix":"!LINK3D",
+      "body":[
+         "!LINK3D not implemented"
+      ],
+      "description":[
+         "Define, digitize and edit coordinate strings and link these strings together."
+      ]
+   },
+   // LINKPE
+   "Link perimeters to form wireframe models":{
+      "prefix":"!LINKPE",
+      "body":[
+         "!LINKPE not implemented"
+      ],
+      "description":[
+         "Link perimeters to form wireframe models."
+      ]
+   },
+   // LIST
+   "Display file":{
+      "prefix":"LIST",
+      "body":[
+         "!LIST not implemented"
+      ],
+      "description":[
+         "Display a Datamine file in a standard format in the output window."
+      ]
+   },
+   // LISTC
+   "Display file v2":{
+      "prefix":"!LISTC",
+      "body":[
+         "!LISTC not implemented"
+      ],
+      "description":[
+         "Display a Datamine file in a standard format in the output window."
+      ]
+   },
+   // LISTDR
+   "Display project files":{
+      "prefix":"!LISTDR",
+      "body":[
+         "!LISTDR not implemented"
+      ],
+      "description":[
+         "Display a list of all Datamine files and their physical locations that are in the Datamine project."
+      ]
+   },
+   // LOADCF
+   "Macro to Menu":{
+      "prefix":"!LOADCF",
+      "body":[
+         "!LOADCF not implemented"
+      ],
+      "description":[
+         "Convert a Studio macro file (.mac) to a compressed Studio menu file (.men)."
+      ]
+   },
+   // LUNICOND
+   "localized uniform conditioning":{
+      "prefix":"!LUNICOND",
+      "body":[
+         "!LUNICOND not implemented"
+      ],
+      "description":[
+         "Perform localized uniform conditioning on a panel model."
+      ]
+   }, 
+   // MACEND
+   "Stop macro":{
+      "prefix":"!MACEND",
+      "body":[
+         "!MACEND not implemented"
+      ],
+      "description":[
+         "Stop interactive process storage to a Studio macro file."
+      ]
+   }, 
+   // MACST
+   "Run Macro":{
+      "prefix":"!MACST",
+      "body":[
+         "!MACST not implemented"
+      ],
+      "description":[
+         "Run a Datamine Studio macro. (and save it)"
+      ]
+   }, 
+   // MAKEDTM
+   "Create DTM from string/point data":{
+      "prefix":"!MAKEDTM",
+      "body":[
+         "!MAKEDTM not implemented"
+      ],
+      "description":[
+         "Create DTM from string and/or point data."
+      ]
+   }, 
+   // MANOVA
+   "multivariate analysis of variance":{
+      "prefix":"!MANOVA",
+      "body":[
+         "!MANOVA not implemented"
+      ],
+      "description":[
+         "Perform multivariate analysis of variance for an unbalanced and balanced design."
+      ]
+   }, 
+   // MDTRAN
+   "Transform and rotate a block model":{
+      "prefix":"!MDTRAN",
+      "body":[
+         "!MDTRAN not implemented"
+      ],
+      "description":[
+         "Transform and rotate a block model onto a new prototype."
+      ]
+   }, 
+   // MENU
+   "Run a Datamine Studio menu":{
+      "prefix":"!MENU",
+      "body":[
+         "!MENU not implemented"
+      ],
+      "description":[
+         "Run a Datamine Studio menu."
+      ]
+   }, 
+   // MGSORT
+   "Sort file":{
+      "prefix":"!MGSORT",
+      "body":[
+         "!MGSORT &in($1),&out($2),",
+         "        *key1(IJK),",
+         "        @order=1,@keyfrst=0,@roworder=0"
+      ],
+      "description":[
+         "Sort file in ascending or descending order on multiple keyfields."
+      ]
+   }, 
+   // MIKEST
+   "MIK interpolator":{
+      "prefix":"!MIKEST",
+      "body":[
+         "!MIKEST not implemented"
+      ],
+      "description":[
+         "Use the IE method to estimate grades into a block model using the CDF of indicator transformed sample grades."
+      ]
+   }, 
+   // MIKSCELL
+   "MIK to file for NPV Scheduler":{
+      "prefix":"!MIKSCELL",
+      "body":[
+         "!MIKSCELL not implemented"
+      ],
+      "description":[
+         "Convert an MIK model into a model that is suitable for input to NPV Scheduler."
+      ]
+   }, 
+   // MINEWD  
+   "Mining width LG Arcs":{
+      "prefix":"!MINEWD",
+      "body":[
+         "!MINEWD not implemented"
+      ],
+      "description":[
+         "Create LG 'Additional Arcs' for mining width."
+      ]
+   }, 
+   // MINLAY
+   "Launch the Interactive Mine Design Layout":{
+      "prefix":"!MINLAY",
+      "body":[
+         "!MINLAY not implemented"
+      ],
+      "description":[
+         "Launch the Interactive Mine Design Layout process."
+      ]
+   }, 
+   // MINWID,  
+   "Composite drillhole data into ore and waste intervals":{
+      "prefix":"!MINWID",
+      "body":[
+         "!MINWID not implemented"
+      ],
+      "description":[
+         "Composite drillhole data into ore and waste intervals."
+      ]
+   }, 
+   // MINZON
+   "Investigate the relationship between mining parameters":{
+      "prefix":"!MINZON",
+      "body":[
+         "!MINZON not implemented"
+      ],
+      "description":[
+         "Investigate the relationship between mining parameters."
+      ]
+   }, 
+   // MOD2BLKS
+   "Create mining blocks":{
+      "prefix":"!MOD2BLKS",
+      "body":[
+         "!MOD2BLKS not implemented"
+      ],
+      "description":[
+         "Create mining blocks, reserves and dependencies to be used for scheduling directly from a block model."
+      ]
+   }, 
+   // MOD2XYZ
+   "Block values to points":{
+      "prefix":"!MOD2XYZ",
+      "body":[
+         "!MOD2XYZ &in1($1),&in2($2),&out($3),",
+         "         *x(${4:X}),*y(${5:Y}),*z(${6:Z}),",
+         "         *f1($7),*f2($8),*f3($9),*f4($10)"
+      ],
+      "description":[
+         "Assign point data with values from a block model."
+      ]
+   }, 
+   // MODCONF 
+   "confidence of the tonnage and grade in cond simul":{
+      "prefix":"!MODCONF",
+      "body":[
+         "!MODCONF not implemented"
+      ],
+      "description":[
+         "Calculate the confidence of the tonnage and grade resource estimates of a block model."
+      ]
+   }, 
+   // MODENV 
+   "envelopes of economically mineable blocks":{
+      "prefix":"!MODENV",
+      "body":[
+         "!MODENV not implemented"
+      ],
+      "description":[
+         "Identify envelopes of economically mineable blocks in a block model."
+      ]
+   }, 
+   // MODRES,  
+   "results table of grades in a block model":{
+      "prefix":"!MODRES",
+      "body":[
+         "!MODRES not implemented"
+      ],
+      "description":[
+         "Produce results table of grades in a block model."
+      ]
+   }, 
+   // MODSPLIT
+   "Splits a Datamine model using an input wireframe":{
+      "prefix":"!MODSPLIT",
+      "body":[
+         "!MODSPLIT not implemented"
+      ],
+      "description":[
+         "Splits a Datamine model using an input wireframe to create",
+         "a new model that is constrained by the wireframe."
+      ]
+   }, 
+   // MODTRA  
+   "drill block model":{
+      "prefix":"!MODTRA",
+      "body":[
+         "!MODTRA &model($1),&grid($2),&out($3),",
+         "        *f1($4),*f2($5),*f3($6),*f4($7),",
+         "        *xg($8),*yg($9),*zg($10),",
+         "        @plane=${11:1},@xorig=$12,@yorig=$13,@zorig=$14,",
+         "        @xspace=$15,@yspace=$16,@zspace=$17,",
+         "        @numx=$18,@numy=$19,@numz=$20,",
+         "        @miss=${21:0},@print=${22:0}"
+      ],
+      "description":[
+         "Create trace lines (drillholes) through a model containing the model attribute values."
+      ]
+   }, 
+   // MODTRI 
+   "Model to wireframe":{
+      "prefix":"!MODTRI",
+      "body":[
+         "!MODTRI not implemented"
+      ],
+      "description":[
+         "Convert the visible faces of a sub-cell block model to wireframe surfaces."
+      ]
+   }, 
+   // MONACO
+   "Random choice":{
+      "prefix":"!MONACO",
+      "body":[
+         "!MONACO not implemented"
+      ],
+      "description":[
+         "Generate a table of random numbers with a specified number of records using a choice of distributions."
+      ]
+   }, 
+   // NOMENU,  
+   "Check syntax of a menu":{
+      "prefix":"!NOMENU",
+      "body":[
+         "!NOMENU not implemented"
+      ],
+      "description":[
+         "Check the syntax of the currently established menu."
+      ]
+   }, 
+   // NOXRUN,  
+   "Validate the syntax of a macro":{
+      "prefix":"!NOXRUN",
+      "body":[
+         "!NOXRUN not implemented"
+      ],
+      "description":[
+         "Validate the syntax of a macro(s) or menu(s) in a character format system file."
+      ]
+   }, 
+   // NSCORE,  
+   "Transform normal score":{
+      "prefix":"!NSCORE",
+      "body":[
+         "!NSCORE not implemented"
+      ],
+      "description":[
+         "Transform a set of data to a normal distribution."
+      ]
+   }, 
+   // NSMODBAK
+   "Back-transform normal score variograms":{
+      "prefix":"!NSMODBAK",
+      "body":[
+         "!NSMODBAK not implemented"
+      ],
+      "description":[
+         "Back-transform normal score variograms."
+      ]
+   }, 
+   // NSTRANS, 
+   "Transform normal score 2":{
+      "prefix":"!NSTRANS",
+      "body":[
+         "!NSTRANS not implemented"
+      ],
+      "description":[
+         "Transform a set of data to a normal score distribution."
+      ]
+   }, 
+   // ORIGIN
+   "Calculate the origin and extent of a rotated model":{
+      "prefix":"!ORIGIN",
+      "body":[
+         "!ORIGIN not implemented"
+      ],
+      "description":[
+         "Calculate the origin and extent of a rotated model."
+      ]
+   }, 
+   // OUTPUT,  
+   "file to text format":{
+      "prefix":"!OUTPUT",
+      "body":[
+         "!OUTPUT &in($1),${2:&fieldlst(),}",
+         "        *f1($3),*f2($4),*f3($5),*f4($6),${7:*fieldnam(),}",
+         "        @csv=${8:1},@nodd=${9:0},@dplace=${10:-1},@implicit=${11:0}",
+         "${12:system file name}"
+      ],
+      "description":[
+         "Save a Datamine format file to text format as either space (regular columns) or comma separated."
+      ]
+   }, 
+   // PANELEST
+   "Grade and variance of regular panels":{
+      "prefix":"!PANELEST",
+      "body":[
+         "!PANELEST not implemented"
+      ],
+      "description":[
+         "Estimate the grade and variance of 2D and 3D panels."
+      ]
+   }, 
+   // PANELK 
+   "Grade and variance of iregular panels":{
+      "prefix":"!ORIGIN",
+      "body":[
+         "!ORIGIN not implemented"
+      ],
+      "description":[
+         "Estimate the average value and the estimation variance of irregular shaped 2-D panels."
+      ]
+   }, 
+   // PAUSE
+   "Pause macro":{
+      "prefix":"!PAUSE",
+      "body":[
+         "!PAUSE not implemented"
+      ],
+      "description":[
+         "Pauses for a time proportional to the @DELAY parameter (macro only)."
+      ]
+   }, 
+   // PCA    
+   "PCA":{
+      "prefix":"PCA",
+      "body":[
+         "!PCA not implemented"
+      ],
+      "description":[
+         " Group fields together into components on the basis of the correlation (R) or variance/covariance (C) matrix."
+      ]
+   }, 
+   // PERDTM  
+   "Project to DTM surface":{
+      "prefix":"!PERDTM",
+      "body":[
+         "!PERDTM not implemented"
+      ],
+      "description":[
+         "Create 3D perimeters by projecting 2D perimeters onto a DTM surface."
+      ]
+   }, 
+   // PERFIL,  
+   "Fill perimeters with cells":{
+      "prefix":"!PERFIL",
+      "body":[
+         "!PERFIL not implemented"
+      ],
+      "description":[
+         "Fill perimeters with cells and sub-cells."
+      ]
+   }, 
+   // PEROPN, 
+   "Open or close all perimeters":{
+      "prefix":"!PEROPN",
+      "body":[
+         "!PEROPN not implemented"
+      ],
+      "description":[
+         " Open or close all perimeters in the specified input file."
+      ]
+   }, 
+   // PERTAG
+   "Update the TAGs in a perimeter":{
+      "prefix":"!PERTAG",
+      "body":[
+         "!PERTAG not implemented"
+      ],
+      "description":[
+         "Update the TAGs in a perimeter and a TAG file."
+      ]
+   }, 
+   // PERTRA,  
+   "Generate perimeters in planes":{
+      "prefix":"!PERTRA",
+      "body":[
+         "!PERTRA not implemented"
+      ],
+      "description":[
+         "Generate perimeters in planes across other perimeters."
+      ]
+   }, 
+   // PICDIR,  
+   "Create a file catalog":{
+      "prefix":"!PICDIR",
+      "body":[
+         "!PICDIR not implemented"
+      ],
+      "description":[
+         "Create a file catalog file by supplying matching pattern expressions."
+      ]
+   }, 
+   // PICFLD,  
+   "Write field names to an output":{
+      "prefix":"!PICFLD",
+      "body":[
+         "!PICFLD not implemented"
+      ],
+      "description":[
+         "Write field names to an output file if the fields in the input file match pattern expressions."
+      ]
+   }, 
+   // PICREC, 
+   "Copy records":{
+      "prefix":"!PICREC",
+      "body":[
+         "!PICREC &in($1),:&fieldlst($2),&out($3),",
+         "        *f1($4),*f2($5),*f3($6),*f4($7),*fieldnam($8),",
+         "        @append=${9:0}",
+         "${10:filter syntax end}",
+      ],
+      "description":[
+         "Copy records in a Datamine file where the record matches filters."
+      ]
+   }, 
+   // PITMOD,  
+   "Report reserves within a pit":{
+      "prefix":"!PITMOD",
+      "body":[
+         "!PITMOD not implemented"
+      ],
+      "description":[
+         "Report reserves within a pit by defining bench height and key fields."
+      ]
+   }, 
+   // PITRES,  
+   "Tabulate reserves in a RESULTS file":{
+      "prefix":"!PITRES",
+      "body":[
+         "!PITRES not implemented"
+      ],
+      "description":[
+         "Tabulate reserves in a RESULTS file."
+      ]
+   }, 
+   // PLOTAN,  
+   "scatter plot file":{
+      "prefix":"!PLOTAN",
+      "body":[
+         "!PLOTAN not implemented"
+      ],
+      "description":[
+         "Generate a scatter plot file, where each data point is annotated with the value of a given field."
+      ]
+   }, 
+   // PLOTAR,  
+   "scatter plot file 2":{
+      "prefix":"!PLOTAR",
+      "body":[
+         "!PLOTAR not implemented"
+      ],
+      "description":[
+         "Generates a scatter plot file where each data point is annotated with an arrow."
+      ]
+   }, 
+   // PLOTCN,  
+   "spline contours":{
+      "prefix":"!PLOTCN",
+      "body":[
+         "!PLOTCN not implemented"
+      ],
+      "description":[
+         "Generate spline contours in plan or orthogonal sections."
+      ]
+   }, 
+   // PLOTCX,  
+   "spline contours 2":{
+      "prefix":"!PLOTCX",
+      "body":[
+         "!PLOTCX not implemented"
+      ],
+      "description":[
+         "Spline contouring in plan, orthogonal sections or a rotated section plane."
+      ]
+   }, 
+   // PLOTDA,  
+   "Scatter plot 3":{
+      "prefix":"!PLOTDA",
+      "body":[
+         "!PLOTDA not implemented"
+      ],
+      "description":[
+         "Generate a scatter plot file where each data point has a symbol centre."
+      ]
+   },
+   // POLREG
+   "Calculate polynomial regression":{
+      "prefix":"!POLREG",
+      "body":[
+         "!POLREG not implemented"
+      ],
+      "description":[
+         "Calculate polynomial regression as Y estimates for X values up to the 5th order.."
+      ]
+   }, 
+   // POLYDC,  
+   "Declustered weights using the polyhedra method":{
+      "prefix":"!POLYDC",
+      "body":[
+         "!POLYDC  &in($1),&srcparm($2),&wiretr($3tr),&wirept($3pt),",
+         "         &out($4),&model($5),&polytr($6tr),&polypt($6pt),",
+         "         *x(${7:X}),*y(${8:Y}),*z(${9:Z}),",
+         "         *wtfield(${10:AU_PPM}),*zone($11),",
+         "         @compleng=${12:0},@xinc=$13,@yinc=$13,@zinc=$13,",
+         "         @srefnum=$14,@radius=$15,@maxgrdpt=$15",
+      ],
+      "description":[
+         "Obtain a more representative set of samples by calculating declustered weights using the polyhedra method."
+      ]
+   }, 
+   // PROMOD,  
+   "Optimize the number of sub-cells in a block model":{
+      "prefix":"!PROMOD",
+      "body":[
+         "!PROMOD &in($1),&out($2),&remnants($3),",
+         "        *key1($4),*key2($5),*key3($6),*key4($7),",
+         "        *density(${8:DENSITY}),",
+         "        @density=${9:1},@xincmin=$10,@yincmin=$11,@zincmin=$12,",
+         "        @overlap=${13:0},@optimise=${14:2},@tol=${15:0.001},@accuracy=${16:0.001},",
+         "        @print=${17:0}"
+      ],
+      "description":[
+         "Optimize the number of sub-cells in a block model."
+      ]
+   }, 
+   // PROPER, 
+   "Check strings in a file for crossovers":{
+      "prefix":"!PROPER",
+      "body":[
+         "!PROPER not implemented"
+      ],
+      "description":[
+         "Check strings in a file for crossovers, optionally adding AREA and centre point fields and perforing other operations."
+      ]
+   }, 
+   // PROTOM,  
+   "Generate a prototype model definition (rotated)":{
+      "prefix":"!PROTOM",
+      "body":[
+         "!PROTOM &out($1),",
+         "@rotmod=1",
+         "n # mined out field",
+         "n # sub-cells",
+         "X0",
+         "Y0",
+         "Z0",
+         "XMORIG",
+         "YMORIG",
+         "ZMORIG",
+         "ANGLE1",
+         "ROTAXIS1",
+         "ANGLE2",
+         "ROTAXIS2",
+         "ANGLE3",
+         "ROTAXIS3",
+         "XINC",
+         "YINC",
+         "ZINC",
+         "XN",
+         "YN",
+         "ZN",
+         "!rem",
+      ],
+      "description":[
+         "Generate a prototype model definition by specifying the mineral deposit limits."
+      ]
+   }, 
+   // PROTOM,  
+   "Generate a prototype model definition (no rotated)":{
+      "prefix":"!PROTOM",
+      "body":[
+         "!PROTOM &out($1),",
+         "@rotmod=0",
+         "n # mined out field",
+         "n # sub-cells",
+         "XMORIG",
+         "YMORIG",
+         "ZMORIG",
+         "XINC",
+         "YINC",
+         "ZINC",
+         "XN",
+         "YN",
+         "ZN",
+         "!rem",
+      ],
+      "description":[
+         "Generate a prototype model definition by specifying the mineral deposit limits."
+      ]
+   }, 
+   // PTCLDWF, 
+   "Reconstruct a 3D surface with points":{
+      "prefix":"!PTCLDWF",
+      "body":[
+         "!PTCLDWF not implemented"
+      ],
+      "description":[
+         "Reconstruct a 3D surface according to input points object data."
+      ]
+   }, 
+   // QNLM  
+   "Calculate a dissimilarity matrix":{
+      "prefix":"!QNLM",
+      "body":[
+         "!QNLM not implemented"
+      ],
+      "description":[
+         "Group samples using euclidian distance to calculate a dissimilarity matrix."
+      ]
+   }, 
+   // QUANTILE
+   "Quantile analysis":{
+      "prefix":"!QUANTILE",
+      "body":[
+         "!QUANTILE not implemented"
+      ],
+      "description":[
+         "Quantile analysis of a set of sample data."
+      ]
+   }, 
+   // QUICKEST,
+   "Interpolate grade 2":{
+      "prefix":"!QUICKEST",
+      "body":[
+         "!QUICKEST not implemented"
+      ],
+      "description":[
+         "Interpolate grade into a block model."
+      ]
+   }, 
+   // RANK,    
+   "Rank values ":{
+      "prefix":"!RANK",
+      "body":[
+         "!RANK not implemented"
+      ],
+      "description":[
+         "Rank values of a given numeric or alphanumeric field in a file."
+      ]
+   }, 
+   // REBLOCK, 
+   "Reblocks a block model":{
+      "prefix":"!REBLOCK",
+      "body":[
+         "!REBLOCK &modin($1),&modout($2),",
+         "        *density(${3:DENSITY}),*fillvol($4),*voidvol($5),",
+         "        *vwfld1($6),*vwfld2($7),*vwfld3($8),*vwfld4($9),",
+         "        *domfld1($10),*domfld2($11),*domfld3($12),*domfld4($13),",
+         "        *addfld1($14),*addfld2($15),*addfld3($16),*addfld4($17),",
+         "        *minfld1($18),*minfld2($19),*minfld3($20),*minfld4($21),",
+         "        *maxfld1($22),*maxfld2($23),*maxfld3($24),*maxfld4($25),",
+         "        @xinc=$26,@yinc=$27,@zinc=$28,@fullcell=${29:0},@density=$30,",
+         "        @setabsnt=${31:0}",
+         "# &modin* input block model file; &modout* output block model file;",
+         "# *density* density field for weighting; *fillvol proportion of block",
+         "# defined by sub-cells (only if @fullcell=1); *voidvol is *fillvol - 1;",
+         "# *vwfld1...15 fields to be volume weighted; *domfld1...10 fields defined",
+         "# as dominant; *addfld1...10 additive fields; *minfld1...5 using minimum;",
+         "# *maxfld1...5 using maximum; @xinc, @yinc, and @zinc are new cell sizes",
+         "# (not used is @fullcell=1); @fullcell set to 1 to re-block to sub-cell",
+         "# model to parent cell; @density density constant if *density not present;",
+         "# @setabsnt use @density to assign density where *density is absent."
+      ],
+      "description":[
+         "Reblocks a block model to a new a parent size, keeping the same origin."
+      ]
+   }, 
+   // RECCOP,  
+   "Copy a group of records":{
+      "prefix":"!RECCOP",
+      "body":[
+         "!RECCOP not implemented"
+      ],
+      "description":[
+         "Copy a group of records from one file to another."
+      ]
+   }, 
+   // REGMOD,  
+   "Regularize model":{
+      "prefix":"!REGMOD",
+      "body":[
+         "!REGMOD &in1($1),&in2($2),&fieldlst($3),&out($4),",
+         "*f1($5),*f2($6),*f3($7),*f4($8),",
+         "*fieldnam($9),",
+         "@print=${10:0}",
+      ],
+      "description":[
+         "Produce a regular parent cell model from an input model, averaging fields by volume."
+      ]
+   }, 
+   // REGMOW,  
+   "Regularize model 2":{
+      "prefix":"!REGMOW",
+      "body":[
+         "!REGMOW not implemented"
+      ],
+      "description":[
+         "Produce a regular cell model for pit optimization."
+      ]
+   }, 
+   // RENAME,  
+   "Rename file":{
+      "prefix":"!RENAME",
+      "body":[
+         "!RENAME rename &in($1),&out($2),@delete=${3:1}"
+      ],
+      "description":[
+         "Rename a Datamine file."
+      ]
+   }, 
+   // REPORK
+   "Report generator with key":{
+      "prefix":"!REPORK",
+      "body":[
+         "!REPORK not implemented"
+      ],
+      "description":[
+         "General tabulating report generator with provision for separate keyfield sections."
+      ]
+   }, 
+   // REPORT,  
+   "Report generator":{
+      "prefix":"!REPORT",
+      "body":[
+         "!REPORT&in($1),",
+         "@lines=${2:-},@noff=${3:0},@sysfile=${4:0}",
+         "${5:system file name}",
+         "${6:half line header}",
+         "${7:half line header}",
+         "${8:half line header}",
+         "${9:half line header}",
+         "${10:half line header}",
+         "${11:half line header}",
+         "${12:half line header}",
+         "${13:half line header}",
+         "${14:half line header}",
+         "${15:half line header}",
+         "${16:field}",
+         "${17:format}"
+      ],
+      "description":[
+         "Generate a tabulated report to custom requirements."
+      ]
+   }, 
+   // RESCAT,  
+   "Reserve categories in terms of the distance":{
+      "prefix":"!RESCAT",
+      "body":[
+         "!RESCAT not implemented"
+      ],
+      "description":[
+         "Define reserve categories in terms of the distance of the nearest sample from the centre of a cell."
+      ]
+   }, 
+   // RESTRI,  
+   "Filter by key values":{
+      "prefix":"!RESTRI",
+      "body":[
+         "!RESTRI &in1($1),&in2($2),&out($3),",
+         "        *key1($4),*key2($5),*key3($6),*key4($7)"
+      ],
+      "description":[
+         "Copy records from the first input file where keyfield values match with the second input file."
+      ]
+   }, 
+   // RNLM,    
+   "R mapping angular distances":{
+      "prefix":"!RNLM",
+      "body":[
+         "!RNLM not implemented"
+      ],
+      "description":[
+         "R - mode non linear mapping using angular distances from the Pearsson correlation coefficient matrix."
+      ]
+   }, 
+   // ROTORDER
+   "Converts rotation axes":{
+      "prefix":"!ROTORDER",
+      "body":[
+         "!ROTORDER not implemented"
+      ],
+      "description":[
+         "Converts rotation axes and angles to a specified rotation order."
+      ]
+   }, 
+   // SCREEN,  
+   "Formatted screen command":{
+      "prefix":"!SCREEN",
+      "body":[
+         "!SCREEN not implemented"
+      ],
+      "description":[
+         "Formatted screen command for menu and macro interaction."
+      ]
+   }, 
+   // SCREND
+   "Clear the screen":{
+      "prefix":"!SCREND",
+      "body":[
+         "!SCREND not implemented"
+      ],
+      "description":[
+         "Clear the screen and erase the history of SCREEN commands."
+      ]
+   }, 
+   //SCRFMT,  
+   "Format screen text":{
+      "prefix":"!SCRFMT",
+      "body":[
+         "!SCRFMT not implemented"
+      ],
+      "description":[
+         "Format text using format controls defined in the SCREEN command."
+      ]
+   }, 
+   // SECDEF,  
+   "section definition file":{
+      "prefix":"!SECDEF",
+      "body":[
+         "!SECDEF not implemented"
+      ],
+      "description":[
+         "Create a section definition file."
+      ]
+   },
+   // SELCOP
+   "Selectively copy (block model)":{
+      "prefix":"!SELCOP",
+      "body":[
+         "!SELCOP &in($1),&out($3),",
+         "        *f1(IJK),*f2(XC),*f3(YC),*f4(ZC),",
+         "        *f5(XINC),*f6(YINC),*f7(ZINC),*f8(NX),",
+         "        *f9(NY),*f10(NZ),*f11(XMORIG),*f12(YMORIG),",
+         "        *f13(ZMORIG),*f14($4),*f15($5),*f16($6),",
+         "        *f17($7),*f18($8),*f19($9),*f20($10),",
+         "        *f21($11),*f22($12),*f23($13),*f24($14),",
+         "        @keepall=${15:0}"
+      ],
+      "description":[
+         "Selectively copy named fields from a file to another file."
+      ]
+   },
+   // SELCOP
+   "Selectively copy (drillhole)":{
+      "prefix":"!SELCOP",
+      "body":[
+         "!SELCOP &in($1),&out($3),",
+         "        *f1(BHID),*f2(FROM),*f3(TO),*f4(LENGTH),",
+         "        *f5(X),*f6(Y),*f7(Z),*f8(A0),",
+         "        *f9(B0),*f10($4),*f11($5),*f12($6),",
+         "        *f13($7),*f14($8),*f15($9),*f16($10),",
+         "        @keepall=${11:0}"
+      ],
+      "description":[
+         "Selectively copy named fields from a file to another file."
+      ]
+   },
+   // SELDEL,  
+   "Selectively delete":{
+      "prefix":"!SECDEF",
+      "body":[
+         "!SECDEF &in($1),${2:&fieldlst(),}&out($3),",
+         "        *f1($4),*f2($5),*f3($6),*f4($7),${8:*fieldnam(),}",
+         "        @keepall=${9:0}"
+      ],
+      "description":[
+         "Selectively delete named fields from a file."
+      ]
+   },
+   // SELEXY,  
+   "Selectively copy in perimeter":{
+      "prefix":"!SELEXY",
+      "body":[
+         "!SELEXY not implemented"
+      ],
+      "description":[
+         "Selectively copy records for which X and Y coordinate values",
+         "lie within a perimeter defined in a perimeter file."
+      ]
+   },
+   // SELPER,  
+   "Selectively copy in perimeter 2":{
+      "prefix":"!SELPER",
+      "body":[
+         "!SELPER &in($1),&perimin($2),&out($3),",
+         "        *x($4),*y($5),*z($6),*dplus($7),*dminus($8),", 
+         "        *attrib1($9),*attrib2($10),*attrib3($11),*attrib4($12),", 
+         "        @outside=${13:0},@pvalue=$14,@clip=${15:0},@dplus=$16,", 
+         "        @dminus=$17,@print=${18:0}"
+      ],
+      "description":[
+         "Select records which lie on or within a perimeter and copy them to an output file.",
+      ]
+   },
+   // SELTR2
+   "Select data relative to a wireframe":{
+      "prefix":"!SELTR2",
+      "body":[
+         "!SELTR2 not implemented"
+      ],
+      "description":[
+         "Select data relative to a wireframe.",
+      ]
+   },
+   // SELTRI,  
+   "Select data relative to a wireframe 2":{
+      "prefix":"!SELTRI",
+      "body":[
+         "!SELTRI not implemented"
+      ],
+      "description":[
+         "Select records lying inside/outside wireframe models or above/below triangulated surfaces.",
+      ]
+   },
+   // SELWF,   
+   "Select data relative to a wireframe 3":{
+      "prefix":"!SELWF",
+      "body":[
+         "!SELWF &in($1),&out($2),",
+         "       &wiretr($3tr),&wirept($3pt),",
+         "       *x($4),*y($5),*z($6),*zone($7),",
+         "       *attrib1($8),*attrib2($9),*attrib3($10),*attrib4($11),",
+         "       @select=$12,@plane='${13:XY}',@exclude=${14:0},@toleranc=${15:0.001},",
+         "       @print=${16:0}",
+         "",
+         "# @select:",
+         "#    1: above DTM surface",
+         "#    2: below DTM surface",
+         "#    3: inside solid",
+         "#    4: outside solid",
+         "#    5: above wireframe surface",
+         "#    6: below wireframe surface",
+         "#    7: between two wireframe surfaces",
+         "#    8: outside two wireframe surfaces"
+      ],
+      "description":[
+         "Select data relative to a wireframe.",
+      ]
+   },
+   // SETENV
+   "Update the environment file":{
+      "prefix":"!SETENV",
+      "body":[
+         "!SETENV not implemented"
+      ],
+      "description":[
+         "Update the environment file with new variables.",
+      ]
+   }, 
+   // SETVAL,  
+   "Insert a user-defined value":{
+      "prefix":"!SETVAL",
+      "body":[
+         "!SETVAL not implemented"
+      ],
+      "description":[
+         "Insert a user-defined value into a given field.",
+      ]
+   },
+   // SGSIM,   
+   "Gaussian simulation":{
+      "prefix":"!SGSIM",
+      "body":[
+         "!SGSIM not implemented"
+      ],
+      "description":[
+         "Create a regular grid of conditionally-simulated points using sequential Gaussian simulation.",
+      ]
+   },
+   // SLIMOD,  
+   "Change model prototype":{
+      "prefix":"!SLIMOD",
+      "body":[
+         "!SLIMOD &proto($1),&in($2),&out($3)"
+      ],
+      "description":[
+         "Put model onto a new prototype definition by",
+         "splitting at new cell boundaries and recalculating IJK value.",
+      ]
+   },
+   // SLIPER,  
+   "Intersect perimeters by planes":{
+      "prefix":"!SLIPER",
+      "body":[
+         "!SLIPER not implemented"
+      ],
+      "description":[
+         "Intersect a set of parallel perimeters by a set of orthogonal planes.",
+      ]
+   },
+   // SMUHIS,  
+   "Create a histogram":{
+      "prefix":"!SMUHIS",
+      "body":[
+         "!SMUHIS not implemented"
+      ],
+      "description":[
+         "Create a histogram using the shortcut evaluation method.",
+      ]
+   },
+   // SMUMOD, 
+   "estimating grade and tonnes above cut-off":{
+      "prefix":"!SMUMOD",
+      "body":[
+         "!SMUMOD not implemented"
+      ],
+      "description":[
+         " Shortcut method for estimating grade and tonnes above cut-off.",
+      ]
+   },
+   // SORTX,   
+   "Sort file 2":{
+      "prefix":"!SORTX",
+      "body":[
+         "!SORTX not implemented"
+      ],
+      "description":[
+         "Sort any file into ascending (or optionally descending) order using multiple keyfields.",
+      ]
+   },
+   // SPLAT,   
+   "Append records":{
+      "prefix":"!SPLAT",
+      "body":[
+         "!SPLAT not implemented"
+      ],
+      "description":[
+         "Append each record of the 2nd file onto the corresponding record number of the 1st file.",
+      ]
+   },
+   // SPLICO
+   "Contour plot and string files":{
+      "prefix":"!SPLICO",
+      "body":[
+         "!SPLICO not implemented"
+      ],
+      "description":[
+         "produce contour plot and string files of irregularly scattered data points, wireframe or model.",
+      ]
+   },
+   // SPLIT,   
+   "Split an input file":{
+      "prefix":"!SPLIT",
+      "body":[
+         "!SPLIT &in($1),&fnames($2),",
+         "       *key($3),",
+         "       @ndp=${4:0},@maxfiles=${5:50}"
+      ],
+      "description":[
+         "Split an input file into multiple output files based on a single specified keyfield value.",
+      ]
+   },
+   // ST1GX
+   "statistics for a single field":{
+      "prefix":"!ST1GX",
+      "body":[
+         "!ST1GX not implemented"
+      ],
+      "description":[
+         "Calculate and report to the output text window general summary statistics for a single field.",
+      ]
+   },
+   // STATCOM, 
+   "statistics for validating model":{
+      "prefix":"!STATCOM",
+      "body":[
+         "!STATCOM not implemented"
+      ],
+      "description":[
+         "Computes comparison summary statistics for validating model versus samples.",
+      ]
+   },
+   // STATNP,  
+   "non-parametric summary statistics":{
+      "prefix":"!STATNP",
+      "body":[
+         "!STATNP not implemented"
+      ],
+      "description":[
+         "Calculate non-parametric summary statistics on numeric fields in a file.",
+      ]
+   },
+   // STATS,   
+   "statistical analysis":{
+      "prefix":"!STATNP",
+      "body":[
+         "!STATNP &in($1),&fieldlst($2),&out($3),",
+         "       *key1($4),*key2($5),*key3($6),*key4($7),",
+         "       *f1($8),*f2($9),*f3($10),*f4($11),",
+         "       *weight($12),*fieldnam(${13:FIELDNAM})"
+      ],
+      "description":[
+         "Perform statistical analysis on data tables.",
+      ]
+   },
+   // SUBJOI
+   "Filter by keyfields 2":{
+      "prefix":"!SUBJOI",
+      "body":[
+         "!SUBJOI not implemented"
+      ],
+      "description":[
+         "Write out all records and all fields from both input files where the specified keyfields match.",
+      ]
+   },
+   // SUBWVE,  
+   "Filter by keyfields 3":{
+      "prefix":"!SUBWVE",
+      "body":[
+         "!SUBWVE not implemented"
+      ],
+      "description":[
+         "Write out matching records and matching fields where the specified keyfield(s) match.",
+      ]
+   },
+   // SUDTTR,  
+   "Load a SURPAC DTM":{
+      "prefix":"!SUDTTR",
+      "body":[
+         "!SUDTTR not implemented"
+      ],
+      "description":[
+         "Load a SURPAC DTM (v1) into a wireframe surface file.",
+      ]
+   },
+   // SUPES2,  
+   "Output Surpac2 String File":{
+      "prefix":"!SUPES2",
+      "body":[
+         "!SUPES2 not implemented"
+      ],
+      "description":[
+         "Output Surpac2 String File.",
+      ]
+   },
+   // SUPES3,  
+   "perimeter file to a SURPAC2":{
+      "prefix":"!SUPES3",
+      "body":[
+         "!SUPES3 not implemented"
+      ],
+      "description":[
+         "Write a Datamine perimeter file to a SURPAC2 string file.",
+      ]
+   },
+   // SUPEST,  
+   "Output Surpac String File":{
+      "prefix":"!SUPEST",
+      "body":[
+         "!SUPEST not implemented"
+      ],
+      "description":[
+         "Output Surpac String File.",
+      ]
+   },
+   // SUPOOB,  
+   "Output Surpac Point File":{
+      "prefix":"!SUPOOB",
+      "body":[
+         "!SUPOOB not implemented"
+      ],
+      "description":[
+         "Output Surpac Point File.",
+      ]
+   },
+   // SUPPCORR,
+   "Change of support model for UC":{
+      "prefix":"!SUPPCORR",
+      "body":[
+         "!SUPPCORR not implemented"
+      ],
+      "description":[
+         "Initiate a change of support model as part of Uniform Conditioning.",
+      ]
+   },
+   // SURCAL,  
+   "Computes coordinates of surveys":{
+      "prefix":"!SURCAL",
+      "body":[
+         "!SURCAL not implemented"
+      ],
+      "description":[
+         "This process computes provisional and/or adjusted coordinates of surveys contained in an input file of reduced observations.",
+      ]
+   },
+   // SURFIP,  
+   "Interpolate points into a pair of surfaces":{
+      "prefix":"!SURFIP",
+      "body":[
+         "!SURFIP not implemented"
+      ],
+      "description":[
+         "Interpolate a set of point data into a pair of surfaces expressed as sub-cells in a 3-D model.",
+      ]
+   },
+   // SURLOG,  
+   "Read survey log":{
+      "prefix":"!SURLOG",
+      "body":[
+         "!SURLOG not implemented"
+      ],
+      "description":[
+         "Read a character format system file containing records of survey information.",
+      ]
+   },
+   // SUROBS,  
+   "Reduce survey angle and distance measurements":{
+      "prefix":"!SUROBS",
+      "body":[
+         "!SUROBS not implemented"
+      ],
+      "description":[
+         "Reduce survey angle and distance measurements.",
+      ]
+   },
+   // SURPOI,  
+   "Interpolate upper/lower elevation values":{
+      "prefix":"!SURPOI",
+      "body":[
+         "!SURPOI not implemented"
+      ],
+      "description":[
+         "Interpolate upper/lower elevation values onto a file of 2D points.",
+      ]
+   },
+   // SURTAC,  
+   "coordinates from survey":{
+      "prefix":"!SURTAC",
+      "body":[
+         "!SURTAC not implemented"
+      ],
+      "description":[
+         "Compute 3D coordinates of points located by angle and distance measurements from a survey station.",
+      ]
+   },
+   // SURTRI,  
+   "Create DTM from":{
+      "prefix":"!SURTRI",
+      "body":[
+         "!SURTRI not implemented"
+      ],
+      "description":[
+         "Create DTM from string and/or point data.",
+      ]
+   },
+   // SURVIG,  
+   "edit a database of surveys":{
+      "prefix":"!SURVIG",
+      "body":[
+         "!SURVIG not implemented"
+      ],
+      "description":[
+         "View and edit a database of surveyed point and string data.",
+      ]
+   },
+   // SURVIN,  
+   "Convert formats for open pit mine planning":{
+      "prefix":"!SURVIN",
+      "body":[
+         "!SURVIN not implemented"
+      ],
+      "description":[
+         "Convert data between formats for open pit mine planning.",
+      ]
+   },
+   // SURVOU,  
+   "Convert formats for open pit mine planning 2":{
+      "prefix":"!SURVOU",
+      "body":[
+         "!SURVOU not implemented"
+      ],
+      "description":[
+         "Convert data between formats for open pit mine planning.",
+      ]
+   },
+   // SUSTP2
+   "Input Surpac2 String File.":{
+      "prefix":"!SUSTP2",
+      "body":[
+         "!SUSTP2 not implemented"
+      ],
+      "description":[
+         "Input Surpac2 String File.",
+      ]
+   },
+   // SUSTPE,  
+   "Input Surpac String File.":{
+      "prefix":"!SUSTPE",
+      "body":[
+         "!SUSTPE not implemented"
+      ],
+      "description":[
+         "Input Surpac String File.",
+      ]
+   },
+   // ,
+   "Create Swath plot":{
+      "prefix":"!SWATHPLT",
+      "body":[
+         "!SWATHPLT &model($1),&sample($2),",
+         "          &swath1($3),&swath2($4),&swathstr($5),",
+         "          *zonefld($6),@zoneval=$7,",
+         "          *samplex(${8:X}),*sampley(${9:Y}),*samplez(${10:Z}),",
+         "          *grade1($11),*grade2($12),*grade3($13),*grade4($14),",
+         "          *sgrade1($15),*sgrade2($16),*sgrade3($17),*sgrade4($18),",
+         "          *dcweight($19),",
+         "          @directn=${20:1},@width=$21,@csvout1=${22:0},@csvout2=${23:1}",
+         " ",
+         "# &model* required model file; &sample optional sample file;",
+         "# &swath1* for Datamine plotting; &swath2* for other plotting;",
+         "# &swathstr for strings of slices with grades; *zonefld and @zoneval",
+         "# for filtering the data based on a numeric zone field; *samplex...z",
+         "# for defining coordinate fields of sample data; *grade1*...10 are",
+         "# the grade fields in the model file (and sample file); *sgrade1...10",
+         "# are the grade fields only in the sample file; *dcweight for",
+         "# weighting of sample grades; @directn* swath axis (1:X, 2:Y, #:Z);",
+         "# @width width of slices; @csvout1 for CSV output of $swath1;",
+         "# @csvout2 for CSV output of &swath2.",
+      ],
+      "description":[
+         "Create Swath plot data and Swath strings to compare grades in models and samples.",
+      ]
+   },
+   // SYSPAR,  
+   "Display system parameters.":{
+      "prefix":"!SYSPAR",
+      "body":[
+         "!SYSPAR not implemented"
+      ],
+      "description":[
+         "Display application system parameters.",
+      ]
+   },
+   // TABRES, 
+   "reserve tabulations":{
+      "prefix":"!TABRES",
+      "body":[
+         "!TABRES not implemented"
+      ],
+      "description":[
+         "Produces reserve tabulations from a results file produced by other processes.",
+      ]
+   },
+   // TBLIN,   
+   "Enter data of definable format":{
+      "prefix":"!TBLIN",
+      "body":[
+         "!TBLIN not implemented"
+      ],
+      "description":[
+         "Enter data of definable format from a system file or the keyboard.",
+      ]
+   },
+   // TDIN,    
+   "Model from Whittle THREE-D results":{
+      "prefix":"!TDIN",
+      "body":[
+         "!TDIN not implemented"
+      ],
+      "description":[
+         "Create a Datamine model file from a Whittle THREE-D results file.",
+      ]
+   },
+   // TDOUT,   
+   "Model to Whittle THREE-D results":{
+      "prefix":"!TDOUT",
+      "body":[
+         "!TDOUT not implemented"
+      ],
+      "description":[
+         "Output a Datamine model file in Whittle THREE-D format.",
+      ]
+   },
+   // TERPLT,  
+   "Ternary diagram plot.":{
+      "prefix":"!TERPLT",
+      "body":[
+         "!TERPLT not implemented"
+      ],
+      "description":[
+         "Generate a ternary (triangular) diagram plot.",
+      ]
+   },
+   // TONGRAD, 
+   "Tonnes and grade reserves":{
+      "prefix":"!TONGRAD",
+      "body":[
+         "!TONGRAD not implemented"
+      ],
+      "description":[
+         "Calculate tonnes and grade reserves in a block model.",
+      ]
+   },
+   // TREND,   
+   "Fits a polynomial trend surface":{
+      "prefix":"!TREND",
+      "body":[
+         "!TREND not implemented"
+      ],
+      "description":[
+         "Fits a polynomial trend surface to a set of data.",
+      ]
+   },
+   // TRICON,  
+   "contours from scattered data":{
+      "prefix":"!TRICON",
+      "body":[
+         "!TRICON not implemented"
+      ],
+      "description":[
+         "Generate contours from irregularly scattered data points or triangulated DTM.",
+      ]
+   },
+   // TRIFIL,  
+   "Fill wireframe file with cells":{
+      "prefix":"!TRIFIL",
+      "body":[
+         "!TRIFIL &proto($1),&model($2),",
+         "        &perimin($3),&wiretr($4tr),&wirept($4pt),",
+         "        *zone($5),",
+         "        @modltype=${6:1},@zone=$7,@maxdip=${8:0},",
+         "        @splits=${9:0},@plane=${10:'XY'},",
+         "        @xsubcell=${11:1},@ysubcell=${12:1},@zsubcell=${13:1},@resol=${14:1},",
+         "        @pvalue=$15,@autosort=${16:1}",
+         " ",
+         "# @modltype",
+         "#   1: solid, fill inside",
+         "#   2: solid, fill outside",
+         "#   3: surface, fill below (XY), south (XZ), west (YZ)",
+         "#   4: surface, above (XY), north (XZ), east (YZ)",
+         "#   5: two surfaces, fill between.",
+         "#   6: two surfaces, fill above upper and below lower"
+      ],
+      "description":[
+         "Fill a single wireframe file with cells and sub-cells using an existing prototype file.",
+      ]
+   },
+   // TRIPOI,  
+   "intersection of elevation against a surface":{
+      "prefix":"!TRIPOI",
+      "body":[
+         "!TRIPOI not implemented"
+      ],
+      "description":[
+         "Point (X,Y) intersection of elevation against a surface wireframe.",
+      ]
+   },
+   // TRIVAL,  
+   "tonnes and grades within a wireframe":{
+      "prefix":"!TRIVAL",
+      "body":[
+         "!TRIVAL not implemented"
+      ],
+      "description":[
+         "Report the tonnes and grades of the blocks within a wireframe.",
+      ]
+   },
+   // TRIVOL, 
+   "volume of a wireframe":{
+      "prefix":"!TRIVOL",
+      "body":[
+         "!TRIVOL &wiretr($1tr),&wirept($1pt),&perimin($2),",
+         "        &out($3),",
+         "        *zone($4),",
+         "        @zbase=${5:0},@nosid=${6:0},@dtm=${7:0}"
+      ],
+      "description":[
+         " Report volume and other statistics of a wireframe model.",
+      ]
+   },
+   // TRUETHK, 
+   "True, horizontal and vertical thickness":{
+      "prefix":"!TRUETHK",
+      "body":[
+         "!TRUETHK &in($1),&out($2), @dip=$3,@dipdirn=$4"
+      ],
+      "description":[
+         "Calculate the true, horizontal and vertical thickness for a set of samples.",
+      ]
+   },
+   // UNFOLD,  
+   "Unfolded Coordinate System":{
+      "prefix":"!UNFOLD",
+      "body":[
+         "!UNFOLD not implemented"
+      ],
+      "description":[
+         "Transform a set of X,Y,Z data into an Unfolded Coordinate System [UCS].",
+      ]
+   },
+   // UNIFCOND 
+   "Uniform Conditioning":{
+      "prefix":"!UNIFCOND",
+      "body":[
+         "!UNIFCOND not implemented"
+      ],
+      "description":[
+         "Uniform Conditioning to investigate recoverable reserves at alternative Selective Mining Unit sizes.",
+      ]
+   },
+   // VALIDA,  
+   "Validate fields":{
+      "prefix":"!VALIDA",
+      "body":[
+         "!VALIDA not implemented"
+      ],
+      "description":[
+         "Validate fields against each other in a Datamine file.",
+      ]
+   },
+   // VARFIT,  
+   "Display experimental variograms":{
+      "prefix":"!VARFIT",
+      "body":[
+         "!VARFIT not implemented"
+      ],
+      "description":[
+         "Display experimental variograms as produced by the VGRAM process, and fit a model.",
+      ]
+   },
+   // VER,     
+   "Displays the current Studio version":{
+      "prefix":"!VER",
+      "body":[
+         "!VER not implemented"
+      ],
+      "description":[
+         "Displays the current Studio version and build number in the Command control bar.",
+      ]
+   },
+   // VGM3DMAP,
+   "block model representation of experimental variograms":{
+      "prefix":"!VGM3DMAP",
+      "body":[
+         "!VGM3DMAP not implemented"
+      ],
+      "description":[
+         "Produce a block model representation of experimental variograms",
+      ]
+   },
+   // VGRAM,  
+   "Calculate variograms":{
+      "prefix":"!VGRAM",
+      "body":[
+         "!VGRAM not implemented"
+      ],
+      "description":[
+         "Calculate variograms and/or cross variograms.",
+      ]
+   },
+   // WEAVE,  
+   "Match by keyfield":{
+      "prefix":"!WEAVE",
+      "body":[
+         "!WEAVE &in1($1),&in2($2),&out($3),",
+         "       *key1($4),*key2($5),*key3($6),*key4($7)", 
+         " ",
+         "# Common fields are output with all records from 'in1' and 'in2'.",
+         "# For matching records, 'in2' updates 'in1'."
+      ],
+      "description":[
+         "Write out all records and matching fields where the specified keyfield(s) match.",
+      ]
+   },
+   // WEDGEVOL,
+   "Evaluate a wedge volume":{
+      "prefix":"!WEDGEVOL",
+      "body":[
+         "!WEDGEVOL not implemented"
+      ],
+      "description":[
+         "Evaluate a wedge volume whose limits are defined by two or three DTMs or surfaces.",
+      ]
+   },
+   // WFCODE, 
+   "Apply a code to point in wireframe":{
+      "prefix":"!WFCODE",
+      "body":[
+         "!WFCODE &points($1),",
+         "        &wiretr($2_tr),&wirept($2_pt),",
+         "        &perimin($3),&out($4),",
+         "        *x(${5:X}),*y(${6:Y}),*z(${7:Z}),*zone(${8:DOMAIN}),",
+         "        *attrib1(${9:DOMAIN}),*attrib2($10),*attrib3($11),*attrib4($12),",
+         "        @code=${13:3},@allpts=${14:1},@setabsnt=${15:0},@exclude=${16:0},",
+         "        @toleranc=${17:0.001},@checkrot=${18:1},@outside=${19:0}",
+      ],
+      "description":[
+         " Apply a code to point coordinates depending on whether the points are constrained by a wireframe.",
+      ]
+   },
+   // WFEXPND, 
+   "Expand (or contract) a wireframe":{
+      "prefix":"!WFEXPND",
+      "body":[
+         "!WFEXPND not implemented"
+      ],
+      "description":[
+         "Expand (or contract) a wireframe by a fixed distance in all directions.",
+      ]
+   },
+   // WFTREND, 
+   "Extend a wireframe along a plane":{
+      "prefix":"!WFTREND",
+      "body":[
+         "!WFTREND not implemented"
+      ],
+      "description":[
+         "Extend a wireframe along a planar trend beyond the data limits.",
+      ]
+   },
+   // WIREFILL,
+   "Fill a single wireframe file with cells":{
+      "prefix":"!WIREFILL",
+      "body":[
+         "!WIREFILL not implemented"
+      ],
+      "description":[
+         "Fill a single wireframe file with cells and sub-cells.",
+      ]
+   },
+   // WIREPE,  
+   "Create strings intersection of a wireframe/plane":{
+      "prefix":"!WIREPE",
+      "body":[
+         "!WIREPE not implemented"
+      ],
+      "description":[
+         "Create strings defining the intersection of a wireframe model and planes.",
+      ]
+   },
+   // XRUN,    
+   "Start execution of a macro":{
+      "prefix":"!XRUN",
+      "body":[
+         "!XRUN not implemented"
+      ],
+      "description":[
+         "Start execution of a macro or menu.",
+      ]
+   },
+   // XVALID,  
+   "cross-validation method":{
+      "prefix":"!XVALID",
+      "body":[
+         "!XVALID not implemented"
+      ],
+      "description":[
+         "Analyse parameters for grade estimation, using the cross-validation method.",
+      ]
+   },
 }
 
