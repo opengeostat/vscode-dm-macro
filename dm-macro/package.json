@@ -3,6 +3,8 @@
     "displayName": "dm-macro",
     "description": "Datamine Macro Language",
     "version": "0.0.1",
+    "publisher":"opengeostat",
+    "repository":"https://github.com/opengeostat/vscode-dm-macro",
     "engines": {
         "vscode": "^1.58.0"
     },
