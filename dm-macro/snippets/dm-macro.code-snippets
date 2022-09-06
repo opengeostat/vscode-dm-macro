@@ -850,8 +850,9 @@
   "Create Ellipsoid":{
       "prefix":"!ELLIPSE",
       "body":[
-         "!ELLIPSE &srcparm($1), &wiretr($2), &wirept($3),",
-         "         @srefnum=$4, @print=${5:0}"
+         "!ELLIPSE &srcparm(${1:spar}), &wiretr(${2:ellipsetr}), &wirept(${3:ellipsept}),",
+         "         @srefnum=${4:1}, @print=${5:0},",
+         "         @XCENTRE=$6, @YCENTRE=$7, @ZCENTRE=$8"
       ],
       "description":[
          "Create a wireframe ellipsoid corresponding to Estimation",
@@ -886,10 +887,10 @@
       "prefix":"!ESTIMA",
       "body":[
          "!ESTIMA &proto($1),&in($2),&model($3),",
-         "&srcparm(${4:xxspar}),&estparm(${5:xxepar}),&vmodparm(${6:xxvpar}),",
-         "*x(${7:X}),*y(${8:Y}),*z(${9:Z}),*zone1_f($10),*key(${11:BHID}),",
-         "@discmeth=${12:1},@xpoints=${13:1},@ypoints=${14:1},@zpoints=${15:1},",
-         "@parent=${16:1},@copyval=${17:0},@print=${18:0}"
+         "        &srcparm(${4:xxspar}),&estparm(${5:xxepar}),&vmodparm(${6:xxvpar}),",
+         "        *x(${7:X}),*y(${8:Y}),*z(${9:Z}),*zone1_f($10),*key(${11:BHID}),",
+         "        @discmeth=${12:1},@xpoints=${13:1},@ypoints=${14:1},@zpoints=${15:1},",
+         "        @parent=${16:1},@copyval=${17:0},@print=${18:0}"
       ],
       "description":[
          "Studio process for estimating grades into a model (Used within Advance Interpolation command)."
@@ -1301,6 +1302,121 @@
       "description":[
          "Specify a Data Definition (DD) to create a new file and enter",
          "CSV data from the keyboard or an external file to populate it."
+      ]
+   },
+   // INPFIL - variograms
+   "INPFIL variogram parameter file":{
+      "prefix":"!INPFIL variogram",
+      "body":[
+         "!INPFIL &OUT(vpar)",
+         "Variogram parameter file imported from csv",
+         "ASSAY A 8 Y ''",
+         "DOMAIN N Y -",
+         "CUTOFF N Y - ",
+         "VREFNUM N Y 1",
+         "VANGLE1 N Y -",
+         "VANGLE2 N Y -",
+         "VANGLE3 N Y -",
+         "VAXIS1 N Y -",
+         "VAXIS2 N Y -",
+         "VAXIS3 N Y -",
+         "NUGGET N Y -",
+         "ST1 N Y 1",
+         "ST1PAR1 N Y -",
+         "ST1PAR2 N Y -",
+         "ST1PAR3 N Y -",
+         "ST1PAR4 N Y -",
+         "ST2 N Y 1",
+         "ST2PAR1 N Y -",
+         "ST2PAR2 N Y -",
+         "ST2PAR3 N Y -",
+         "ST2PAR4 N Y -",
+         "ST3 N Y 1",
+         "ST3PAR1 N Y -",
+         "ST3PAR2 N Y -",
+         "ST3PAR3 N Y -",
+         "ST3PAR4 N Y -",
+         "]",
+         "Y",
+         "vpar.csv",
+         "!REM"
+      ],
+      "description":[
+         "An INPFIL to import variogram parameter files",
+         "contained in a CSV file exported from supervisor",
+         "You may need to deleted the fields Assay, domain, and cutoff",
+         "to use this parameter file in estima"
+      ]
+   },
+   // INPFIL - search
+   "INPFIL search parameter file":{
+      "prefix":"!INPFIL search",
+      "body":[
+         "!INPFIL &OUT(spar)",
+         "Search parameter file imported from csv",
+         "SREFNUM N Y 1",
+         "SMETHOD N Y 2",
+         "SDIST1 N Y -",
+         "SDIST2 N Y -",
+         "SDIST3 N Y -",
+         "SANGLE1 N Y -",
+         "SANGLE2 N Y -",
+         "SANGLE3 N Y -",
+         "SAXIS1 N Y -",
+         "SAXIS2 N Y -",
+         "SAXIS3 N Y -",
+         "MINNUM1 N Y -",
+         "MAXNUM1 N Y -",
+         "SVOLFAC2 N Y -",
+         "MINNUM2 N Y -",
+         "MAXNUM2 N Y -",
+         "SVOLFAC3 N Y -",
+         "MINNUM3 N Y -",
+         "MAXNUM3 N Y -",
+         "OCTMETH N Y -",
+         "MINOCT N Y -",
+         "MINPEROC N Y -",
+         "MAXPEROC N Y -",
+         "MAXKEY N Y -",
+         "]",
+         "Y",
+         "spar.csv",
+         "!REM"
+      ],
+      "description":[
+         "An INPFIL to import search parameter files",
+         "contained in a CSV file"
+      ]
+   },
+   // INPFIL - estima
+   "INPFIL estimation parameter file":{
+      "prefix":"!INPFIL estima",
+      "body":[
+         "!INPFIL &OUT(epar)",
+         "Estimation parameter file for OK",
+         "CMPDOM N Y -",
+         "VALUE_IN A 8 Y ''",
+         "VALUE_OU A 8 Y ''",
+         "ZONE1_F A 8 Y ''",
+         "ZONE2_F A 8 Y ''",
+         "NUMSAM_F A 8 Y ''",
+         "MINDIS_F A 8 Y ''",
+         "SREFNUM N Y 1",
+         "VREFNUM N Y 1",
+         "IMETHOD N Y 3",
+         "NUMSAM_F A 8 Y ''",
+         "SVOL_F A 8 Y ''",
+         "VAR_F A 8 Y ''",
+         "ANISO N Y 1",
+         "POWER N Y 1",
+         "]",
+         "Y",
+         "epar.csv",
+         "!REM"
+      ],
+      "description":[
+         "An INPFIL to import estima parameter files",
+         "contained in a CSV file"
       ]
    },
    // INPFML  
@@ -2078,7 +2194,7 @@
          "!PROTOM &out($1),",
          "@rotmod=1",
          "n # mined out field",
-         "n # sub-cells",
+         "y # sub-cells",
          "X0",
          "Y0",
          "Z0",
@@ -2110,7 +2226,7 @@
          "!PROTOM &out($1),",
          "@rotmod=0",
          "n # mined out field",
-         "n # sub-cells",
+         "y # sub-cells",
          "XMORIG",
          "YMORIG",
          "ZMORIG",
@@ -3170,7 +3286,9 @@
    "Start execution of a macro":{
       "prefix":"!XRUN",
       "body":[
-         "!XRUN not implemented"
+         "!XRUN <macro name>",
+         "<macro system file name>",
+         "!"
       ],
       "description":[
          "Start execution of a macro or menu.",
@@ -3194,7 +3312,7 @@
 
    // General macro template
    "Simple macro template":{
-      "prefix":"START",
+      "prefix":"!START",
       "body":[
        
        "# ==================================",
@@ -3220,22 +3338,43 @@
          "A simple Macro Template"
       ]
     },
- 
+    // Header file
+   "Heder macro file":{
+      "prefix":"Header_file",
+      "body":[
+         "# ___________________________________________________________________",
+         "# ",
+         "# <Your organization> ",
+         "#",
+         "# Created:     <Your Name>,  MMMM/YYYY",
+         "#",
+         "# Description: ",
+         "#",
+         "# Modified:    <Your Name>,  MMMM/YYYY   ",
+         "#              <Describe here.>",
+         "#",
+         "# ___________________________________________________________________",
+         "# ",
+      ],
+      "description":[
+         "A simple Macro Template"
+      ]
+   },
+
     // General loop template
     "Simple loop template":{
        "prefix":"LOOP",
        "body":[
         
-          "!let $i# = 0",
-          "!loop:let $i# = {$i# + 1}",
-          "  !field $exists# = $1, $count# = $i#,",
-          "    ${2:$field#} = ${3:FIELD}",
+          "!let \\$i# = 0",
+          "!loop:let \\$i# = \\$i# + 1",
+          "  !field \\$exists# = filename, \\$count# = \\$i#, \\$field1# = FIELD1,  \\$field2# = FIELD2",
           "  Actions to be repeated go here",
-          "!if $i# < $count#, goto loop",
+          "!if \\$i# < \\$count#, goto loop",
   
        ],
        "description":[
-          "A simple Macro Template"
+          "A simple Macro Template that loops on a file"
        ]
     },
 
