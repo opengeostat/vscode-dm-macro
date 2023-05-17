@@ -846,6 +846,16 @@
          "Output a datamine database plotfile to an external system file in DXF format."
       ]
   },
+  // ECHO
+  "Display a macro message in the Command control bar":{
+   "prefix":"!ECHO",
+   "body":[
+      "!ECHO Type message here"
+   ],
+   "description":[
+      "Display a macro message in the Command control bar."
+   ]
+},
   // ELLIPSE
   "Create Ellipsoid":{
       "prefix":"!ELLIPSE",
@@ -1013,6 +1023,33 @@
       ],
       "description":[
          "Estimate the variance of a point in a block."
+      ]
+   },
+   // FIELD
+   "Detects a file and gets values of fields in the file for a particular record":{
+      "prefix":"!FIELD",
+      "body":[
+         "!FIELD $exists#=Filename,$count#=$i#,$Zone#=Zone,$AU#=AU"
+      ],
+      "description":[
+         "Detects the existence of a database file from within a menu or macro",
+         " If the exist $exists# will be set to 1, and $count# will be set to",
+         " the number of records.",
+         " The variables $Zone# and $AU# will be set with the value of",
+         " the fields Zone and Au at record with value $i#",
+         "See also: !FILE; LOOP"
+      ]
+   },
+   // FILE
+   "Detects a file and its number of records":{
+      "prefix":"!FILE",
+      "body":[
+         "!FILE $exist#=Filename, $count# = $i#"
+      ],
+      "description":[
+         "Detects the existence of a database file from within a menu or macro, ",
+         "and the number of records in the file..",
+         "See also: !FIELD; LOOP"
       ]
    },
    // FILCOM
@@ -1561,13 +1598,17 @@
       ]
    },
    // LINK
-   "Link a Datamine file":{
+   "Links a Datamine binary file outside the project folder":{
       "prefix":"!LINK",
       "body":[
-         "!LINK not implemented"
+         "!LINK &out($1)",
+         "${2:system file name}"
       ],
       "description":[
-         "Link a Datamine file outside the project folder to a file inside the project folder (macro only)."
+         "Links a Datamine binary file outside the project folder.",
+         "Warning, this will copy the file to your root folder",
+         "Add exsiting files to project (rclic on project/add existing files)",
+         "See also: !LOCDBOFF"
       ]
    },
    // LINK3D
@@ -1919,6 +1960,30 @@
       ],
       "description":[
          "Transform a set of data to a normal score distribution."
+      ]
+   },
+   // LOCDBOFF
+   "Look for files outside the local folder":{
+      "prefix":"!LOCDBOFF",
+      "body":[
+         "!LOCDBOFF"
+      ],
+      "description":[
+         "Use !LOCDBOFF to look for files outside the local folder.",
+         "You will need to link the files to your project",
+         "See !LINK"
+      ]
+   },
+   // LOCDBON
+   "Look for files only in the local folder":{
+      "prefix":"!LOCDBON",
+      "body":[
+         "!LOCDBON"
+      ],
+      "description":[
+         "Use !LOCDBON to look for files only inside the local folder.",
+         "This is the default in Datamine",
+         "See allso !LOCDBOFF"
       ]
    }, 
    // ORIGIN
@@ -3368,8 +3433,8 @@
         
           "!let \\$i# = 0",
           "!loop:let \\$i# = \\$i# + 1",
-          "  !field \\$exists# = filename, \\$count# = \\$i#, \\$field1# = FIELD1,  \\$field2# = FIELD2",
-          "  Actions to be repeated go here",
+          "  !field \\$exists# = filename, \\$count# = \\$i#, \\$fielda# = FIELDA,  \\$fieldb# = FIELDB",
+          "  # Actions to be repeated go here",
           "!if \\$i# < \\$count#, goto loop",
   
        ],
