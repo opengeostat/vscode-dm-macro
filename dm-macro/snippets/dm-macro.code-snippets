@@ -19,7 +19,7 @@
   "Add extra field":{
      "prefix":"!ADDDD",
      "body":[
-        "!ACCMLT &in($1),&out($2)",
+        "!ADDDD &in($1),&out($2)",
         "${3:file description}",
         "${4:FIELD1 n y -}",
         "${5:FIELD2 a 8 y ''}"
@@ -110,11 +110,11 @@
   "Append files":{
    "prefix":"!APPEND",
    "body":[
-      "!append &in1($1),&in2($2),&out($3),",
+      "!APPEND &in1($1),&in2($2),&out($3),",
       "       @sequence=${4:0},@protodd=${5:0},@print=${6:0}"
    ],
    "description":[
-      "AAppend two or more files to create a new ", 
+      "Append two or more files to create a new ", 
       "file containing the records of all the input files."
    ]
   },
@@ -553,7 +553,7 @@
   "Copy a file adding a record number field":{
      "prefix":"!COPYNR",
      "body":[
-        "COPYNR &in($1),&out($2),@base=$3,@incrment=$4"
+        "!COPYNR &in($1),&out($2),@base=$3,@incrment=$4"
      ],
      "description":[
         "Copy a file adding a record number field RECORDNO. A base value",
