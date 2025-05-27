@@ -613,11 +613,16 @@
   "Reserve from percentile of simulated model":{
      "prefix":"!CSMODEL",
      "body":[
-        "!CSMODEL Not implemented"
+        "!CSMODEL &POINTS(results),&CUTOFF(cutoff),&QUANTILE(quantile),", 
+        "         &SIMMOD(simmod),&STATMOD(statmod),",
+        "         *GRADE(SIM),@XPPPC=1.0,@YPPPC=1.0,@ZPPPC=1.0,",
+        "         @FULLCELL=1"
      ],
      "description":[
         "Create an output model, reserve or plot file based on percentile",
-        "values, simulated points and cutoff grades."
+        "values, simulated points and cutoff grades.",
+        "Quantiles can be defined in a file with field PERCENT, 10,25,50,75,90",
+        "Cutoffs can be defined with field CUTOFF, cutoff1, cutoff2, etc"
      ]
   },
   //  CSOWOPT
@@ -796,10 +801,26 @@
   "Edit file in place":{
    "prefix":"!DMEDIT",
    "body":[
-      "!DMEDIT &in($1)"
+      "!DMEDIT &in($1)",
+      "V",
+      "SIMNUM",
+      "50",
+      "E"
    ],
    "description":[
-      "Basic in-place file editing, including editing default values and field names."
+      "Basic in-place file editing, including editing default values and field names.",
+      "Commands are:",
+      "F: LIST ALL FIELD NAMES",
+      "C: CHANGE A FIELD NAME",
+      "L: LIST A LINE OR LINES OF DATA",
+      "D: DELETE A LINE OF DATA",
+      "R: REPLACE A DATA ITEM",
+      "S: SEARCH FOR A GIVEN DATA ITEM",
+      "H: PROVIDE HELP",
+      "V: CHANGE DEFAULT VALUE OF A FIELD",
+      "P: CHANGE LAST PAGE/RECORD",
+      "E: EXIT FROM EDITOR",
+      "Add relevant data below some commands"
    ]
   },
   // DMFD
