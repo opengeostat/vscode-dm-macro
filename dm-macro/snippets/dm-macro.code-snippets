@@ -543,7 +543,7 @@
   "Copy file":{
      "prefix":"!COPY",
      "body":[
-        "COPY &in($1),&out($2)"
+        "!COPY &in($1),&out($2)"
      ],
      "description":[
         "Copy a file to a new file, optionally applying retrieval crtiteria."
