@@ -2462,7 +2462,7 @@
    "Report generator":{
       "prefix":"!REPORT",
       "body":[
-         "!REPORT&in($1),",
+         "!REPORT &in($1),",
          "@lines=${2:-},@noff=${3:0},@sysfile=${4:0}",
          "${5:system file name}",
          "${6:half line header}",
